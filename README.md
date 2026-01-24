@@ -40,15 +40,17 @@
     - [7.2. Linux \& MacOS](#72-linux--macos)
     - [7.3. Using npm (The last npm command you'll ever need)](#73-using-npm-the-last-npm-command-youll-ever-need)
     - [7.4. Verify Installation](#74-verify-installation)
-  - [Quick Start Project Setup](#quick-start-project-setup)
-    - [Initialize New Project](#initialize-new-project)
-    - [Project Structure](#project-structure)
+  - [8. Quick Start Project Setup](#8-quick-start-project-setup)
+    - [8.1. Initialize New Project](#81-initialize-new-project)
+      - [8.1.1. Select a project template: Blank](#811-select-a-project-template-blank)
+      - [8.1.2. Select a project template: React + TailwindCSS + Shadcn (Select All)](#812-select-a-project-template-react--tailwindcss--shadcn-select-all)
+      - [8.1.3. Select a project template: Library](#813-select-a-project-template-library)
+    - [8.2. Project Structure](#82-project-structure)
   - [Bun as a Runtime](#bun-as-a-runtime)
     - [What is a Runtime?](#what-is-a-runtime)
     - [1. Running Files](#1-running-files)
       - [Basic Execution](#basic-execution)
       - [Watch Mode (Auto-reload on save)](#watch-mode-auto-reload-on-save)
-      - [Watch Mode (Auto-reload on save)](#watch-mode-auto-reload-on-save-1)
     - [2. Package.json Scripts](#2-packagejson-scripts)
   - [File Imports](#file-imports)
     - [Importing Text Files](#importing-text-files)
@@ -403,9 +405,9 @@ bun --version
 
 ---
 
-## Quick Start Project Setup
+## 8. Quick Start Project Setup
 
-### Initialize New Project
+### 8.1. Initialize New Project
 ```bash
 bun init
 ```
@@ -416,7 +418,132 @@ This creates:
 - `index.ts`
 - `.gitignore`
 
-### Project Structure
+#### 8.1.1. Select a project template: Blank
+
+```bash
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_1_$ bun init
+
+✓ Select a project template: Blank
+
+ + .gitignore
+ + index.ts
+ + tsconfig.json (for editor autocomplete)
+ + README.md
+
+To get started, run:
+
+    bun run index.ts
+
+bun install v1.3.6 (d530ed99)
+
++ @types/bun@1.3.6
++ typescript@5.9.3
+
+5 packages installed [219.00ms]
+
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_1_$
+```
+
+#### 8.1.2. Select a project template: React + TailwindCSS + Shadcn (Select All)
+
+```bash
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_2_$ bun init
+
+✓ Select a project template: React
+✓ Select a React template: Shadcn + TailwindCSS
+
+ + bunfig.toml
+ + styles/globals.css
+ + package.json
+ + components.json
+ + tsconfig.json
+ + bun-env.d.ts
+ + README.md
+ + .gitignore
+ + src/index.ts
+ + src/App.tsx
+ + src/index.html
+ + src/index.css
+ + src/components/ui/card.tsx
+ + src/components/ui/label.tsx
+ + src/components/ui/button.tsx
+ + src/components/ui/select.tsx
+ + src/components/ui/input.tsx
+ + src/components/ui/textarea.tsx
+ + src/APITester.tsx
+ + src/lib/utils.ts
+ + src/react.svg
+ + src/frontend.tsx
+ + src/logo.svg
+ + build.ts
+
+bun install v1.3.6 (d530ed99)
+
++ @types/bun@1.3.6
++ @types/react@19.2.9
++ @types/react-dom@19.2.3
++ tailwindcss@4.1.18
++ tw-animate-css@1.4.0
++ @radix-ui/react-label@2.1.8
++ @radix-ui/react-select@2.2.6
++ @radix-ui/react-slot@1.2.4
++ bun-plugin-tailwind@0.1.2
++ class-variance-authority@0.7.1
++ clsx@2.1.1
++ lucide-react@0.545.0 (v0.563.0 available)
++ react@19.2.3
++ react-dom@19.2.3
++ tailwind-merge@3.4.0
+
+64 packages installed [238.00ms]
+
+✨ New project configured!
+
+Development - full-stack dev server with hot reload
+
+    bun dev
+
+Static Site - build optimized assets to disk (no backend)
+
+    bun run build
+
+Production - serve a full-stack production build
+
+    bun start
+
+Happy bunning! 🐇
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_2_$ 
+```
+
+#### 8.1.3. Select a project template: Library
+
+```bash
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_3_$ bun init
+
+✓ Select a project template: Library
+package name (8_1_3_): 
+entry point (index.ts): 
+
+ + .gitignore
+ + index.ts
+ + tsconfig.json (for editor autocomplete)
+ + README.md
+
+To get started, run:
+
+    bun run index.ts
+
+bun install v1.3.6 (d530ed99)
+
++ @types/bun@1.3.6
++ typescript@5.9.3
+
+5 packages installed [13.00ms]
+
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_3_$ 
+```
+
+### 8.2. Project Structure
 ```
 project/
 ├── index.ts
@@ -451,15 +578,6 @@ bun run index.ts
 - Bun reads the file, translates it, and runs it
 - Output appears in your terminal
 - This is how servers start!
-
-#### Watch Mode (Auto-reload on save)
-```bash
-# Method 1
-bun index.ts
-
-# Method 2
-bun run index.ts
-```
 
 #### Watch Mode (Auto-reload on save)
 ```bash
