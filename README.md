@@ -70,6 +70,7 @@
     - [12.1. What is File I/O?](#121-what-is-file-io)
     - [12.2. Reading Files with Bun.file](#122-reading-files-with-bunfile)
     - [12.3. File Properties](#123-file-properties)
+      - [12.3.1. MIME](#1231-mime)
     - [12.4. Check File Existence](#124-check-file-existence)
     - [12.5. Writing Files](#125-writing-files)
     - [12.6. Copying Files](#126-copying-files)
@@ -189,6 +190,7 @@
     - [36.2. When to Use **Bun**](#362-when-to-use-bun)
     - [36.3. When to Stick with **Node.js**](#363-when-to-stick-with-nodejs)
   - [37. Resources](#37-resources)
+
 ---
 
 ## 1. Introduction to Bun
@@ -1127,6 +1129,73 @@ bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/11_$ # see, it's got override
 
 ## 12. File I/O Operations
 
+```ts
+// index.ts
+// {
+//     "name":"kintsugi-programmer"
+// }
+
+const file = Bun.file("./user.json");
+
+console.log(file);
+// FileRef ("./user.json") {
+//   type: "application/json;charset=utf-8"
+// }
+
+console.log(file.type);
+// application/json;charset=utf-8
+
+console.log(file.size);
+// 36
+
+console.log(file.name);
+// ./user.json
+
+const file_1 = Bun.file("./message.txt");
+const check_if_exists_file_1 = await file_1.exists(); //Prevents crashes
+console.log(check_if_exists_file_1);
+// false
+
+const data = "Si Vis Pacem Para Bellum !!!";
+const bytes_written_from_data = await Bun.write("message_1.txt",data);
+console.log(bytes_written_from_data);
+// 2
+
+// bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ cat  message_1.txt
+// Si Vis Pacem Para Bellum !!!bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ 
+
+const old_file = Bun.file("./message_1.txt");
+const new_file = Bun.file("./copied_message_1.txt");
+await Bun.write(new_file,old_file); // Doesn't load entire file into memory & Preserves content
+
+// bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ ls
+// README.md  copied_message_1.txt  message_1.txt  package.json   user.json
+// bun.lock   index.ts              node_modules   tsconfig.json
+// bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ cat  copied_message_1.txt
+// Si Vis Pacem Para Bellum !!!bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ 
+```
+```bash
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ bun index.ts
+FileRef ("./user.json") {
+  type: "application/json;charset=utf-8"
+}
+application/json;charset=utf-8
+36
+./user.json
+false
+28
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ ls
+README.md  copied_message_1.txt  message_1.txt  package.json   user.json
+bun.lock   index.ts              node_modules   tsconfig.json
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ cat  message_1.txt
+Si Vis Pacem Para Bellum !!! 
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ cat  copied_message_1.txt
+Si Vis Pacem Para Bellum !!!
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ 
+```
+
+---
+
 ### 12.1. What is File I/O?
 - **I/O** = Input/Output (reading from and writing to files)
 - **File I/O** = Reading data from files or saving data to files
@@ -1146,6 +1215,13 @@ bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/11_$ # see, it's got override
 ```typescript
 const file = Bun.file("./user.json");
 console.log(file);
+```
+```bash
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ bun index.ts
+FileRef ("./user.json") {
+  type: "application/json;charset=utf-8"
+}
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ 
 ```
 
 ### 12.3. File Properties
@@ -1169,6 +1245,31 @@ console.log(file.name); // "user.json"
 - `file.name` gives only the filename without the directory path
 - These properties are useful for validation, logging, and HTTP response headers
 - MIME types help browsers and servers understand how to handle files
+
+#### 12.3.1. MIME
+
+> MIME = Multipurpose Internet Mail Extensions.
+> - It’s a label that tells browsers, servers, and apps what kind of data a file contains and how it should be handled.
+> - A MIME type is a sticker on a package:
+>   - 📦 “Hey browser, this is an image.”
+>   - 📦 “Hey server, this is JSON.”
+>   - 📦 “Hey app, this is a video.”
+> - type/subtype
+>   - index.html → text/html
+>   - style.css → text/css
+
+| File | MIME type                |
+| ---- | ------------------------ |
+| HTML | `text/html`              |
+| CSS  | `text/css`               |
+| JS   | `application/javascript` |
+| JSON | `application/json`       |
+| PNG  | `image/png`              |
+| JPG  | `image/jpeg`             |
+| SVG  | `image/svg+xml`          |
+| MP4  | `video/mp4`              |
+| PDF  | `application/pdf`        |
+
 
 ### 12.4. Check File Existence
 
