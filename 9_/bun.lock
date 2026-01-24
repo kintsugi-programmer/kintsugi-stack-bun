@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "9",
+      "name": "9_",
       "devDependencies": {
         "@types/bun": "latest",
       },

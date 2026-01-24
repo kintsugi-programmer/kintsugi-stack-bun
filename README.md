@@ -623,8 +623,26 @@ bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$
 ```
 
 ### 9.3. Package.json Scripts
+```json
+{
+  "name": "9_",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+  ,"scripts": {
+    "dev": "bun --watch index.ts",
+    "start": "bun index.ts"
+  }
+}
+```
 ```bash
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ bun dev
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9_$ bun dev
 $ bun --watch index.ts
 Hello!
 I am Kintsugi-Programmer.
@@ -632,12 +650,12 @@ I am Kintsugi-Programmer.
 
 
 ^C
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ bun start
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9_$ bun start
 $ bun index.ts
 Hello!
 I am Kintsugi-Programmer.
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ bun run
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9_$
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9_$ bun run
 Usage: bun run [flags] <file or script>
 
 Flags:
@@ -727,7 +745,7 @@ package.json scripts (2 found):
   $ bun run start
     bun index.ts
 
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ 
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9_$ 
 ```
 
 ---
