@@ -11,40 +11,40 @@
 ## Table of Contents
 - [kintsugi-stack-bun](#kintsugi-stack-bun)
   - [Table of Contents](#table-of-contents)
-  - [Introduction to Bun](#introduction-to-bun)
-    - [What is Bun?](#what-is-bun)
-    - [Why Learn Bun?](#why-learn-bun)
-      - [Key Reasons:](#key-reasons)
-  - [Web Development Concepts Refresher](#web-development-concepts-refresher)
-    - [What is JavaScript?](#what-is-javascript)
-    - [What is a Runtime?](#what-is-a-runtime)
-    - [What is a Server?](#what-is-a-server)
-    - [What is an API?](#what-is-an-api)
-    - [What is HTTP?](#what-is-http)
-    - [Client vs Server](#client-vs-server)
-  - [Course Overview](#course-overview)
-    - [Topics Covered:](#topics-covered)
-  - [What is Bun? - Detailed Explanation](#what-is-bun---detailed-explanation)
-    - [Bun vs Node.js](#bun-vs-nodejs)
-      - [Similarities:](#similarities)
-      - [Key Differences:](#key-differences)
-  - [Bun Features Breakdown](#bun-features-breakdown)
-    - [1. Fast JavaScript Runtime](#1-fast-javascript-runtime)
-    - [2. Fast JavaScript Package Manager](#2-fast-javascript-package-manager)
-    - [3. Fast JavaScript Bundler](#3-fast-javascript-bundler)
-    - [4. Fast JavaScript Test Runner](#4-fast-javascript-test-runner)
-    - [5. Node-Compatible Runtime](#5-node-compatible-runtime)
-  - [Companies Using Bun](#companies-using-bun)
-  - [Installation](#installation)
-    - [Windows (PowerShell)](#windows-powershell)
-    - [Linux \& MacOS](#linux--macos)
-    - [Using npm (The last npm command you'll ever need)](#using-npm-the-last-npm-command-youll-ever-need)
-    - [Verify Installation](#verify-installation)
+  - [1. Introduction to Bun](#1-introduction-to-bun)
+    - [1.1. What is Bun?](#11-what-is-bun)
+    - [1.2. Why Learn Bun?](#12-why-learn-bun)
+      - [1.2.1. Key Reasons:](#121-key-reasons)
+  - [2. Web Development Concepts Refresher](#2-web-development-concepts-refresher)
+    - [2.1. What is JavaScript?](#21-what-is-javascript)
+    - [2.2. What is a Runtime?](#22-what-is-a-runtime)
+    - [2.3. What is a Server?](#23-what-is-a-server)
+    - [2.4. What is an API?](#24-what-is-an-api)
+    - [2.5. What is HTTP?](#25-what-is-http)
+    - [2.6. Client vs Server](#26-client-vs-server)
+  - [3. Course Overview](#3-course-overview)
+    - [3.1. Topics Covered:](#31-topics-covered)
+  - [4. What is Bun? - Detailed Explanation](#4-what-is-bun---detailed-explanation)
+    - [4.1. Bun vs Node.js](#41-bun-vs-nodejs)
+      - [4.1.1. Similarities:](#411-similarities)
+      - [4.1.2. Key Differences:](#412-key-differences)
+  - [5. Bun Features Breakdown](#5-bun-features-breakdown)
+    - [5.1. Fast JavaScript Runtime](#51-fast-javascript-runtime)
+    - [5.2. Fast JavaScript Package Manager](#52-fast-javascript-package-manager)
+    - [5.3. Fast JavaScript Bundler](#53-fast-javascript-bundler)
+    - [5.4. Fast JavaScript Test Runner](#54-fast-javascript-test-runner)
+    - [5.5. Node-Compatible Runtime](#55-node-compatible-runtime)
+  - [6. Companies Using Bun](#6-companies-using-bun)
+  - [7. Installation](#7-installation)
+    - [7.1. Windows (PowerShell)](#71-windows-powershell)
+    - [7.2. Linux \& MacOS](#72-linux--macos)
+    - [7.3. Using npm (The last npm command you'll ever need)](#73-using-npm-the-last-npm-command-youll-ever-need)
+    - [7.4. Verify Installation](#74-verify-installation)
   - [Quick Start Project Setup](#quick-start-project-setup)
     - [Initialize New Project](#initialize-new-project)
     - [Project Structure](#project-structure)
   - [Bun as a Runtime](#bun-as-a-runtime)
-    - [What is a Runtime?](#what-is-a-runtime-1)
+    - [What is a Runtime?](#what-is-a-runtime)
     - [1. Running Files](#1-running-files)
       - [Basic Execution](#basic-execution)
       - [Watch Mode (Auto-reload on save)](#watch-mode-auto-reload-on-save)
@@ -190,19 +190,19 @@
 
 ---
 
-## Introduction to Bun
+## 1. Introduction to Bun
 
 > Complete Bun JavaScript & TypeScript Runtime Documentation
 
-### What is Bun?
+### 1.1. What is Bun?
 - **Bun** is a fast JavaScript runtime (alternative to Node.js)
 - Introduced approximately 2-3 years ago
 - Written in **Zig language** (not C++ like Node.js)
 - Provides an **all-in-one toolkit** for JavaScript/TypeScript development
 
-### Why Learn Bun?
+### 1.2. Why Learn Bun?
 
-#### Key Reasons:
+#### 1.2.1. Key Reasons:
 1. **Market Relevance**: Projects may require Bun expertise
 2. **Performance**: Significantly faster than Node.js
 3. **Built-in Features**: Reduces external dependencies
@@ -213,51 +213,51 @@
 
 ---
 
-## Web Development Concepts Refresher
+## 2. Web Development Concepts Refresher
 
 Before diving into Bun, let's understand the foundational concepts:
 
-### What is JavaScript?
+### 2.1. What is JavaScript?
 - **JavaScript** is a programming language that runs on computers
 - Originally created for web browsers (to make websites interactive)
 - Now can run on servers too (backend) with tools like Node.js and Bun
 - Used for: making interactive features, handling data, building entire applications
 
-### What is a Runtime?
+### 2.2. What is a Runtime?
 - **Runtime** = An environment where code runs
 - Think of it like an operating system for your code
 - **Node.js** was the first JavaScript runtime for servers (created ~2009)
 - **Bun** is a newer, faster JavaScript runtime alternative to Node.js
 
-### What is a Server?
+### 2.3. What is a Server?
 - **Server** = A computer that listens for requests and sends responses
 - When you visit a website, your browser (client) sends a request to a server
 - The server processes the request and sends back data/HTML
 - Example: When you visit Google.com, your request goes to Google's servers
 
-### What is an API?
+### 2.4. What is an API?
 - **API** = Application Programming Interface (a way for programs to talk to each other)
 - **HTTP API** = A web server that responds to requests with data (usually JSON)
 - Example: A weather API that returns current temperature
 - Used for: Getting data from servers, sending data to servers, connecting apps
 
-### What is HTTP?
+### 2.5. What is HTTP?
 - **HTTP** = HyperText Transfer Protocol (the language of the web)
 - A standardized way for clients and servers to communicate
 - **Request** = Client asking server for something
 - **Response** = Server sending back data or information
 - **Status codes**: 200 (success), 404 (not found), 500 (server error)
 
-### Client vs Server
+### 2.6. Client vs Server
 - **Client** = Your browser or app that requests data
 - **Server** = Computer that stores data and responds to requests
 - **Flow**: Client → Request → Server → Processing → Response → Client receives data
 
 ---
 
-## Course Overview
+## 3. Course Overview
 
-### Topics Covered:
+### 3.1. Topics Covered:
 
 1. **Introduction & Setup**
    - What is Bun and why learn it
@@ -289,28 +289,28 @@ Before diving into Bun, let's understand the foundational concepts:
 
 ---
 
-## What is Bun? - Detailed Explanation
+## 4. What is Bun? - Detailed Explanation
 
-### Bun vs Node.js
+### 4.1. Bun vs Node.js
 
-#### Similarities:
+#### 4.1.1. Similarities:
 - Both are JavaScript runtimes
 - Both allow running JavaScript on the backend
 - Both allow you to write server code (not just browser code)
 
-#### Key Differences:
+#### 4.1.2. Key Differences:
 
-**1. TypeScript Support**
+**1. End-to-End TypeScript Support**
 - **TypeScript** = JavaScript with type checking (helps catch errors early)
 - **Bun**: Zero-configuration TypeScript support (built-in, works immediately)
 - **Node.js**: Requires separate TypeScript installation and setup
 - **Why it matters**: Less setup = faster development
 
 **2. Performance**
-- **Bun**: Significantly faster than Node.js
+- **Bun**: Significantly faster than Node.js (50%+)
 - **What "faster" means**: Code runs quicker, servers respond quicker, pages load faster
 - Reasons for speed:
-  - Written in **Zig language** (faster than C++)
+  - Written in **Zig language(manual memory management)** (faster than C++(garbage collection))
   - Uses **JavaScriptCore (JSC)** engine instead of V8
   - Custom event loop (vs Node's libuv)
   - Manual memory management (vs garbage collection in C++)
@@ -319,16 +319,16 @@ Before diving into Bun, let's understand the foundational concepts:
 **3. All-in-One Toolkit**
 
 Bun provides built-in solutions for:
-- **Package Manager**: No need for npm installation
-- **Bundler**: Replaces Parcel, Webpack, esbuild
-- **Test Runner**: Replaces Jest
+- **Fast Package Manager**: No need for npm installation
+- **Fast Bundler**: Replaces Parcel, Webpack, esbuild. Compiles Code Faster. No need to install external Bundler.
+- **Test Runner**: Replaces Jest, Built-in
 - **TypeScript Compiler**: Built-in support
 
 ---
 
-## Bun Features Breakdown
+## 5. Bun Features Breakdown
 
-### 1. Fast JavaScript Runtime
+### 5.1. Fast JavaScript Runtime
 ```bash
 # Simple runtime like Node.js but faster
 bun index.ts
@@ -339,32 +339,33 @@ bun index.ts
 - You write code, Bun executes it (like a calculator runs math)
 - Faster than Node.js at starting up and running code
 
-### 2. Fast JavaScript Package Manager
+### 5.2. Fast JavaScript Package Manager
 - **Package Manager** = Tool that downloads and installs code libraries other people wrote
 - Built-in package manager (no npm needed)
 - Extremely fast package installation
 - Compatible with npm registry (same libraries as Node.js)
 
-### 3. Fast JavaScript Bundler
+### 5.3. Fast JavaScript Bundler
 - **Bundler** = Tool that combines multiple files into one optimized file
 - Minifies code for production (makes files smaller)
 - Replaces: Parcel, Webpack, esbuild
 - Why: Faster websites (smaller files = faster download)
 
-### 4. Fast JavaScript Test Runner
+### 5.4. Fast JavaScript Test Runner
 - **Testing** = Writing code to check if your other code works correctly
 - Built-in testing (no Jest needed)
 - Zero external dependencies for testing
 - Example: "If I add 2+2, do I get 4?" tests
 
-### 5. Node-Compatible Runtime
+### 5.5. Node-Compatible Runtime
+- Bun is Fast JS Node-compatible runtime
 - Can run Node.js code with minimal changes
 - Supports Node.js libraries
 - Easy migration from Node.js to Bun
 
 ---
 
-## Companies Using Bun
+## 6. Companies Using Bun
 
 Notable companies using Bun in production:
 - **X (Twitter)**
@@ -374,24 +375,27 @@ Notable companies using Bun in production:
 
 ---
 
-## Installation
+## 7. Installation
 
-### Windows (PowerShell)
+### 7.1. Windows (PowerShell)
 ```powershell
 powershell -c "irm bun.sh/install.ps1|iex"
 ```
 
-### Linux & MacOS
+### 7.2. Linux & MacOS
 ```bash
 curl -fsSL https://bun.sh/install | bash
 ```
 
-### Using npm (The last npm command you'll ever need)
+### 7.3. Using npm (The last npm command you'll ever need)
 ```bash
 npm install -g bun
 ```
+- The last npm command you'll ever need
+- after this you don't need to use npm
+- bun also supports npm packages
 
-### Verify Installation
+### 7.4. Verify Installation
 ```bash
 bun --version
 # Output: 1.2.5 (or current version)
@@ -2336,13 +2340,13 @@ NODE_ENV=production
 
 1. **Bun is NOT a replacement for Node.js** - It's an enhancement
 2. **All-in-one toolkit** - Runtime, package manager, bundler, test runner
-3. **Performance** - Significantly faster than Node.js
+3. **Performance** - Significantly faster than Node.js (50%+)
 4. **Developer Experience** - Less configuration, more productivity
 5. **Compatibility** - Can run Node.js code with minimal changes
 
 ### When to Use **Bun**
 
-* **Faster startup & execution** than Node.js for many workloads
+* **Faster(50%+) startup & execution** than Node.js for many workloads
 * **Built-in toolchain**: runtime + bundler + test runner + package manager
 * **Lower memory usage** in dev and small services
 * **Native TypeScript support** (no transpilation step)
