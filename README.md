@@ -9,184 +9,186 @@
 > Disclaimer: The content presented here is a curated blend of my personal learning journey, experiences, open-source documentation, and invaluable knowledge gained from diverse sources. I do not claim sole ownership over all the material; this is a community-driven effort to learn, share, and grow together.
 
 ## Table of Contents
-- [1. Introduction to Bun](#1-introduction-to-bun)
-  - [1.1. What is Bun?](#11-what-is-bun)
-  - [1.2. Why Learn Bun?](#12-why-learn-bun)
-    - [1.2.1. Key Reasons:](#121-key-reasons)
-- [2. Web Development Concepts Refresher](#2-web-development-concepts-refresher)
-  - [2.1. What is JavaScript?](#21-what-is-javascript)
-  - [2.2. What is a Runtime?](#22-what-is-a-runtime)
-  - [2.3. What is a Server?](#23-what-is-a-server)
-  - [2.4. What is an API?](#24-what-is-an-api)
-  - [2.5. What is HTTP?](#25-what-is-http)
-  - [2.6. Client vs Server](#26-client-vs-server)
-- [3. Course Overview](#3-course-overview)
-  - [3.1. Topics Covered:](#31-topics-covered)
-- [4. What is Bun? - Detailed Explanation](#4-what-is-bun---detailed-explanation)
-  - [4.1. Bun vs Node.js](#41-bun-vs-nodejs)
-    - [4.1.1. Similarities:](#411-similarities)
-    - [4.1.2. Key Differences:](#412-key-differences)
-- [5. Bun Features Breakdown](#5-bun-features-breakdown)
-  - [5.1. Fast JavaScript Runtime](#51-fast-javascript-runtime)
-  - [5.2. Fast JavaScript Package Manager](#52-fast-javascript-package-manager)
-  - [5.3. Fast JavaScript Bundler](#53-fast-javascript-bundler)
-  - [5.4. Fast JavaScript Test Runner](#54-fast-javascript-test-runner)
-  - [5.5. Node-Compatible Runtime](#55-node-compatible-runtime)
-- [6. Companies Using Bun](#6-companies-using-bun)
-- [7. Installation](#7-installation)
-  - [7.1. Windows (PowerShell)](#71-windows-powershell)
-  - [7.2. Linux & MacOS](#72-linux-macos)
-  - [7.3. Using npm (The last npm command you'll ever need)](#73-using-npm-the-last-npm-command-youll-ever-need)
-  - [7.4. Verify Installation](#74-verify-installation)
-- [8. Quick Start Project Setup](#8-quick-start-project-setup)
-  - [8.1. Initialize New Project](#81-initialize-new-project)
-    - [8.1.1. Select a project template: Blank](#811-select-a-project-template-blank)
-    - [8.1.2. Select a project template: React + TailwindCSS + Shadcn (Select All)](#812-select-a-project-template-react-tailwindcss-shadcn-select-all)
-    - [8.1.3. Select a project template: Library](#813-select-a-project-template-library)
-  - [8.2. Project Structure](#82-project-structure)
-- [9. Bun as a Runtime](#9-bun-as-a-runtime)
-  - [9.1. What is a Runtime?](#91-what-is-a-runtime)
-  - [9.2. Running Files](#92-running-files)
-    - [9.2.1. Basic Execution](#921-basic-execution)
-    - [9.2.2. Watch Mode (Auto-reload on save)](#922-watch-mode-auto-reload-on-save)
-  - [9.3. Package.json Scripts](#93-packagejson-scripts)
-- [10. File Imports](#10-file-imports)
-  - [10.1. Importing Text Files](#101-importing-text-files)
-  - [10.2. Importing JSON Files](#102-importing-json-files)
-  - [10.3. Importing TypeScript Modules](#103-importing-typescript-modules)
-- [11. Environment Variables](#11-environment-variables)
-  - [11.1. What are Environment Variables?](#111-what-are-environment-variables)
-  - [11.2. Basic Usage](#112-basic-usage)
-  - [11.3. Three Ways to Access Environment Variables](#113-three-ways-to-access-environment-variables)
-    - [11.3.1. Method 1: process.env](#1131-method-1-processenv)
-    - [11.3.2. Method 2: Bun.env](#1132-method-2-bunenv)
-    - [11.3.3. Method 3: import.meta.env](#1133-method-3-importmetaenv)
-  - [11.4. Type Safety for Environment Variables](#114-type-safety-for-environment-variables)
-  - [11.5. Multiple Environment Files](#115-multiple-environment-files)
-  - [11.6. Using NODE_ENV](#116-using-node_env)
-- [12. File I/O Operations](#12-file-io-operations)
-  - [12.1. What is File I/O?](#121-what-is-file-io)
-  - [12.2. Reading Files with Bun.file](#122-reading-files-with-bunfile)
-  - [12.3. File Properties](#123-file-properties)
-  - [12.4. Check File Existence](#124-check-file-existence)
-  - [12.5. Writing Files](#125-writing-files)
-  - [12.6. Copying Files](#126-copying-files)
-- [13. Working with Directories](#13-working-with-directories)
-  - [13.1. Create Directory](#131-create-directory)
-  - [13.2. Read Directory](#132-read-directory)
-  - [13.3. Get Current Directory](#133-get-current-directory)
-- [14. import.meta Object](#14-importmeta-object)
-  - [14.1. Available Properties](#141-available-properties)
-    - [14.1.1. import.meta.dir](#1411-importmetadir)
-    - [14.1.2. import.meta.dirname (Alias)](#1412-importmetadirname-alias)
-    - [14.1.3. import.meta.env](#1413-importmetaenv)
-    - [14.1.4. import.meta.file](#1414-importmetafile)
-    - [14.1.5. import.meta.path](#1415-importmetapath)
-    - [14.1.6. import.meta.filename (Alias)](#1416-importmetafilename-alias)
-    - [14.1.7. import.meta.url](#1417-importmetaurl)
-    - [14.1.8. import.meta.resolve()](#1418-importmetaresolve)
-  - [14.2. Node.js Compatibility](#142-nodejs-compatibility)
-- [15. Hashing & Encryption](#15-hashing-encryption)
-  - [15.1. What is Password Hashing?](#151-what-is-password-hashing)
-  - [15.2. Password Hashing](#152-password-hashing)
-    - [15.2.1. Hash a Password](#1521-hash-a-password)
-    - [15.2.2. Verify Password](#1522-verify-password)
-  - [15.3. Complete Example](#153-complete-example)
-  - [15.4. Argon2 Algorithm](#154-argon2-algorithm)
-- [16. Bun Utilities](#16-bun-utilities)
-  - [16.1. Bun.version](#161-bunversion)
-  - [16.2. Bun.env](#162-bunenv)
-  - [16.3. Bun.sleep()](#163-bunsleep)
-  - [16.4. crypto.randomUUID()](#164-cryptorandomuuid)
-  - [16.5. Bun.nanoseconds()](#165-bunnanoseconds)
-  - [16.6. Bun.deepEquals()](#166-bundeepequals)
-- [17. HTTP Server with Bun.serve](#17-http-server-with-bunserve)
-  - [17.1. What is an HTTP Server?](#171-what-is-an-http-server)
-  - [17.2. Basic Server Setup](#172-basic-server-setup)
-  - [17.3. Routes Configuration](#173-routes-configuration)
-  - [17.4. Dynamic Route Parameters](#174-dynamic-route-parameters)
-  - [17.5. Better Routing with Routes Object](#175-better-routing-with-routes-object)
-- [18. Complete CRUD API Example](#18-complete-crud-api-example)
-  - [18.1. What is CRUD?](#181-what-is-crud)
-  - [18.2. What are HTTP Methods?](#182-what-are-http-methods)
-  - [18.3. Setup](#183-setup)
-  - [18.4. GET All Posts](#184-get-all-posts)
-  - [18.5. POST Create Post](#185-post-create-post)
-  - [18.6. PUT Update Post](#186-put-update-post)
-  - [18.7. DELETE Post](#187-delete-post)
-  - [18.8. Complete Server Code](#188-complete-server-code)
-- [19. Query Parameters](#19-query-parameters)
-  - [19.1. What are Query Parameters?](#191-what-are-query-parameters)
-  - [19.2. Parsing Query Parameters](#192-parsing-query-parameters)
-- [20. Rendering HTML Pages](#20-rendering-html-pages)
-  - [20.1. What is HTML?](#201-what-is-html)
-  - [20.2. Serving HTML Files](#202-serving-html-files)
-- [21. URL Redirection](#21-url-redirection)
-- [22. Global Error Handling](#22-global-error-handling)
-- [23. HTTPS/TLS Configuration](#23-httpstls-configuration)
-- [24. Server Utilities](#24-server-utilities)
-  - [24.1. Request Timeout](#241-request-timeout)
-  - [24.2. Get Client IP](#242-get-client-ip)
-  - [24.3. Graceful Shutdown](#243-graceful-shutdown)
-- [25. Console API](#25-console-api)
-  - [25.1. Reading Terminal Input](#251-reading-terminal-input)
-- [26. Color API](#26-color-api)
-  - [26.1. Converting Color Formats](#261-converting-color-formats)
-- [27. Shell Scripting with Bun](#27-shell-scripting-with-bun)
-  - [27.1. Basic Shell Commands](#271-basic-shell-commands)
-  - [27.2. Fetching and Piping](#272-fetching-and-piping)
-  - [27.3. Real-World Example](#273-real-world-example)
-- [28. Web APIs](#28-web-apis)
-  - [28.1. Available APIs:](#281-available-apis)
-- [29. Bun as a Package Manager](#29-bun-as-a-package-manager)
-  - [29.1. What is a Package Manager?](#291-what-is-a-package-manager)
-  - [29.2. Installing Dependencies](#292-installing-dependencies)
-    - [29.2.1. Install All Dependencies](#2921-install-all-dependencies)
-    - [29.2.2. Add Package](#2922-add-package)
-  - [29.3. Removing Dependencies](#293-removing-dependencies)
-  - [29.4. Updating Dependencies](#294-updating-dependencies)
-  - [29.5. Other Commands](#295-other-commands)
-    - [29.5.1. Check Outdated Packages](#2951-check-outdated-packages)
-    - [29.5.2. Publish Package](#2952-publish-package)
-    - [29.5.3. Link Local Package](#2953-link-local-package)
-  - [29.6. Speed Comparison](#296-speed-comparison)
-- [30. Bun Create Command](#30-bun-create-command)
-  - [30.1. Creating Projects from Templates](#301-creating-projects-from-templates)
-    - [30.1.1. React + Vite Project](#3011-react-vite-project)
-    - [30.1.2. Hono.js Project](#3012-honojs-project)
-  - [30.2. Available Templates](#302-available-templates)
-- [31. Testing with Bun](#31-testing-with-bun)
-  - [31.1. What is Testing?](#311-what-is-testing)
-  - [31.2. What is the Test Runner?](#312-what-is-the-test-runner)
-  - [31.3. Setting Up Tests](#313-setting-up-tests)
-    - [31.3.1. Test File Structure](#3131-test-file-structure)
-  - [31.4. Writing Tests](#314-writing-tests)
-  - [31.5. Running Tests](#315-running-tests)
-  - [31.6. Testing Functions](#316-testing-functions)
-  - [31.7. Test Output](#317-test-output)
-- [32. Bun as a Bundler](#32-bun-as-a-bundler)
-  - [32.1. What is a Bundler?](#321-what-is-a-bundler)
-  - [32.2. Building TypeScript to JavaScript](#322-building-typescript-to-javascript)
-    - [32.2.1. Basic Build](#3221-basic-build)
-  - [32.3. Build from Source Directory](#323-build-from-source-directory)
-  - [32.4. Minified Build](#324-minified-build)
-  - [32.5. Build Features](#325-build-features)
-- [33. Important Notes & Best Practices](#33-important-notes-best-practices)
-  - [33.1. Port 6000 Restriction](#331-port-6000-restriction)
-  - [33.2. Environment Variables Best Practices](#332-environment-variables-best-practices)
-  - [33.3. Package Manager Advantages](#333-package-manager-advantages)
-  - [33.4. TypeScript Support](#334-typescript-support)
-  - [33.5. Testing Advantages](#335-testing-advantages)
-- [34. Common Patterns & Examples](#34-common-patterns-examples)
-  - [34.1. API Server Template](#341-api-server-template)
-  - [34.2. File Operations Template](#342-file-operations-template)
-  - [34.3. Environment Setup Template](#343-environment-setup-template)
-- [35. Comparison: Node.js vs Bun](#35-comparison-nodejs-vs-bun)
-- [36. Conclusion](#36-conclusion)
-  - [36.1. Key Takeaways:](#361-key-takeaways)
-  - [36.2. When to Use **Bun**](#362-when-to-use-bun)
-  - [36.3. When to Stick with **Node.js**](#363-when-to-stick-with-nodejs)
-- [37. Resources](#37-resources)
+- [kintsugi-stack-bun](#kintsugi-stack-bun)
+  - [Table of Contents](#table-of-contents)
+  - [1. Introduction to Bun](#1-introduction-to-bun)
+    - [1.1. What is Bun?](#11-what-is-bun)
+    - [1.2. Why Learn Bun?](#12-why-learn-bun)
+      - [1.2.1. Key Reasons:](#121-key-reasons)
+  - [2. Web Development Concepts Refresher](#2-web-development-concepts-refresher)
+    - [2.1. What is JavaScript?](#21-what-is-javascript)
+    - [2.2. What is a Runtime?](#22-what-is-a-runtime)
+    - [2.3. What is a Server?](#23-what-is-a-server)
+    - [2.4. What is an API?](#24-what-is-an-api)
+    - [2.5. What is HTTP?](#25-what-is-http)
+    - [2.6. Client vs Server](#26-client-vs-server)
+  - [3. Course Overview](#3-course-overview)
+    - [3.1. Topics Covered:](#31-topics-covered)
+  - [4. What is Bun? - Detailed Explanation](#4-what-is-bun---detailed-explanation)
+    - [4.1. Bun vs Node.js](#41-bun-vs-nodejs)
+      - [4.1.1. Similarities:](#411-similarities)
+      - [4.1.2. Key Differences:](#412-key-differences)
+  - [5. Bun Features Breakdown](#5-bun-features-breakdown)
+    - [5.1. Fast JavaScript Runtime](#51-fast-javascript-runtime)
+    - [5.2. Fast JavaScript Package Manager](#52-fast-javascript-package-manager)
+    - [5.3. Fast JavaScript Bundler](#53-fast-javascript-bundler)
+    - [5.4. Fast JavaScript Test Runner](#54-fast-javascript-test-runner)
+    - [5.5. Node-Compatible Runtime](#55-node-compatible-runtime)
+  - [6. Companies Using Bun](#6-companies-using-bun)
+  - [7. Installation](#7-installation)
+    - [7.1. Windows (PowerShell)](#71-windows-powershell)
+    - [7.2. Linux \& MacOS](#72-linux--macos)
+    - [7.3. Using npm (The last npm command you'll ever need)](#73-using-npm-the-last-npm-command-youll-ever-need)
+    - [7.4. Verify Installation](#74-verify-installation)
+  - [8. Quick Start Project Setup](#8-quick-start-project-setup)
+    - [8.1. Initialize New Project](#81-initialize-new-project)
+      - [8.1.1. Select a project template: Blank](#811-select-a-project-template-blank)
+      - [8.1.2. Select a project template: React + TailwindCSS + Shadcn (Select All)](#812-select-a-project-template-react--tailwindcss--shadcn-select-all)
+      - [8.1.3. Select a project template: Library](#813-select-a-project-template-library)
+    - [8.2. Project Structure](#82-project-structure)
+  - [9. Bun as a Runtime](#9-bun-as-a-runtime)
+    - [9.1. What is a Runtime?](#91-what-is-a-runtime)
+    - [9.2. Running Files](#92-running-files)
+      - [9.2.1. Basic Execution](#921-basic-execution)
+      - [9.2.2. Watch Mode (Auto-reload on save)](#922-watch-mode-auto-reload-on-save)
+    - [9.3. Package.json Scripts](#93-packagejson-scripts)
+  - [10. File Imports](#10-file-imports)
+    - [10.1. Importing Text Files](#101-importing-text-files)
+    - [10.2. Importing JSON Files](#102-importing-json-files)
+    - [10.3. Importing TypeScript Modules](#103-importing-typescript-modules)
+  - [11. Environment Variables](#11-environment-variables)
+    - [11.1. What are Environment Variables?](#111-what-are-environment-variables)
+    - [11.2. Basic Usage](#112-basic-usage)
+    - [11.3. Three Ways to Access Environment Variables](#113-three-ways-to-access-environment-variables)
+      - [11.3.1. Method 1: process.env](#1131-method-1-processenv)
+      - [11.3.2. Method 2: Bun.env](#1132-method-2-bunenv)
+      - [11.3.3. Method 3: import.meta.env](#1133-method-3-importmetaenv)
+    - [11.4. Type Safety for Environment Variables](#114-type-safety-for-environment-variables)
+    - [11.5. Multiple Environment Files](#115-multiple-environment-files)
+    - [11.6. Using NODE\_ENV](#116-using-node_env)
+  - [12. File I/O Operations](#12-file-io-operations)
+    - [12.1. What is File I/O?](#121-what-is-file-io)
+    - [12.2. Reading Files with Bun.file](#122-reading-files-with-bunfile)
+    - [12.3. File Properties](#123-file-properties)
+    - [12.4. Check File Existence](#124-check-file-existence)
+    - [12.5. Writing Files](#125-writing-files)
+    - [12.6. Copying Files](#126-copying-files)
+  - [13. Working with Directories](#13-working-with-directories)
+    - [13.1. Create Directory](#131-create-directory)
+    - [13.2. Read Directory](#132-read-directory)
+    - [13.3. Get Current Directory](#133-get-current-directory)
+  - [14. import.meta Object](#14-importmeta-object)
+    - [14.1. Available Properties](#141-available-properties)
+      - [14.1.1. import.meta.dir](#1411-importmetadir)
+      - [14.1.2. import.meta.dirname (Alias)](#1412-importmetadirname-alias)
+      - [14.1.3. import.meta.env](#1413-importmetaenv)
+      - [14.1.4. import.meta.file](#1414-importmetafile)
+      - [14.1.5. import.meta.path](#1415-importmetapath)
+      - [14.1.6. import.meta.filename (Alias)](#1416-importmetafilename-alias)
+      - [14.1.7. import.meta.url](#1417-importmetaurl)
+      - [14.1.8. import.meta.resolve()](#1418-importmetaresolve)
+    - [14.2. Node.js Compatibility](#142-nodejs-compatibility)
+  - [15. Hashing \& Encryption](#15-hashing--encryption)
+    - [15.1. What is Password Hashing?](#151-what-is-password-hashing)
+    - [15.2. Password Hashing](#152-password-hashing)
+      - [15.2.1. Hash a Password](#1521-hash-a-password)
+      - [15.2.2. Verify Password](#1522-verify-password)
+    - [15.3. Complete Example](#153-complete-example)
+    - [15.4. Argon2 Algorithm](#154-argon2-algorithm)
+  - [16. Bun Utilities](#16-bun-utilities)
+    - [16.1. Bun.version](#161-bunversion)
+    - [16.2. Bun.env](#162-bunenv)
+    - [16.3. Bun.sleep()](#163-bunsleep)
+    - [16.4. crypto.randomUUID()](#164-cryptorandomuuid)
+    - [16.5. Bun.nanoseconds()](#165-bunnanoseconds)
+    - [16.6. Bun.deepEquals()](#166-bundeepequals)
+  - [17. HTTP Server with Bun.serve](#17-http-server-with-bunserve)
+    - [17.1. What is an HTTP Server?](#171-what-is-an-http-server)
+    - [17.2. Basic Server Setup](#172-basic-server-setup)
+    - [17.3. Routes Configuration](#173-routes-configuration)
+    - [17.4. Dynamic Route Parameters](#174-dynamic-route-parameters)
+    - [17.5. Better Routing with Routes Object](#175-better-routing-with-routes-object)
+  - [18. Complete CRUD API Example](#18-complete-crud-api-example)
+    - [18.1. What is CRUD?](#181-what-is-crud)
+    - [18.2. What are HTTP Methods?](#182-what-are-http-methods)
+    - [18.3. Setup](#183-setup)
+    - [18.4. GET All Posts](#184-get-all-posts)
+    - [18.5. POST Create Post](#185-post-create-post)
+    - [18.6. PUT Update Post](#186-put-update-post)
+    - [18.7. DELETE Post](#187-delete-post)
+    - [18.8. Complete Server Code](#188-complete-server-code)
+  - [19. Query Parameters](#19-query-parameters)
+    - [19.1. What are Query Parameters?](#191-what-are-query-parameters)
+    - [19.2. Parsing Query Parameters](#192-parsing-query-parameters)
+  - [20. Rendering HTML Pages](#20-rendering-html-pages)
+    - [20.1. What is HTML?](#201-what-is-html)
+    - [20.2. Serving HTML Files](#202-serving-html-files)
+  - [21. URL Redirection](#21-url-redirection)
+  - [22. Global Error Handling](#22-global-error-handling)
+  - [23. HTTPS/TLS Configuration](#23-httpstls-configuration)
+  - [24. Server Utilities](#24-server-utilities)
+    - [24.1. Request Timeout](#241-request-timeout)
+    - [24.2. Get Client IP](#242-get-client-ip)
+    - [24.3. Graceful Shutdown](#243-graceful-shutdown)
+  - [25. Console API](#25-console-api)
+    - [25.1. Reading Terminal Input](#251-reading-terminal-input)
+  - [26. Color API](#26-color-api)
+    - [26.1. Converting Color Formats](#261-converting-color-formats)
+  - [27. Shell Scripting with Bun](#27-shell-scripting-with-bun)
+    - [27.1. Basic Shell Commands](#271-basic-shell-commands)
+    - [27.2. Fetching and Piping](#272-fetching-and-piping)
+    - [27.3. Real-World Example](#273-real-world-example)
+  - [28. Web APIs](#28-web-apis)
+    - [28.1. Available APIs:](#281-available-apis)
+  - [29. Bun as a Package Manager](#29-bun-as-a-package-manager)
+    - [29.1. What is a Package Manager?](#291-what-is-a-package-manager)
+    - [29.2. Installing Dependencies](#292-installing-dependencies)
+      - [29.2.1. Install All Dependencies](#2921-install-all-dependencies)
+      - [29.2.2. Add Package](#2922-add-package)
+    - [29.3. Removing Dependencies](#293-removing-dependencies)
+    - [29.4. Updating Dependencies](#294-updating-dependencies)
+    - [29.5. Other Commands](#295-other-commands)
+      - [29.5.1. Check Outdated Packages](#2951-check-outdated-packages)
+      - [29.5.2. Publish Package](#2952-publish-package)
+      - [29.5.3. Link Local Package](#2953-link-local-package)
+    - [29.6. Speed Comparison](#296-speed-comparison)
+  - [30. Bun Create Command](#30-bun-create-command)
+    - [30.1. Creating Projects from Templates](#301-creating-projects-from-templates)
+      - [30.1.1. React + Vite Project](#3011-react--vite-project)
+      - [30.1.2. Hono.js Project](#3012-honojs-project)
+    - [30.2. Available Templates](#302-available-templates)
+  - [31. Testing with Bun](#31-testing-with-bun)
+    - [31.1. What is Testing?](#311-what-is-testing)
+    - [31.2. What is the Test Runner?](#312-what-is-the-test-runner)
+    - [31.3. Setting Up Tests](#313-setting-up-tests)
+      - [31.3.1. Test File Structure](#3131-test-file-structure)
+    - [31.4. Writing Tests](#314-writing-tests)
+    - [31.5. Running Tests](#315-running-tests)
+    - [31.6. Testing Functions](#316-testing-functions)
+    - [31.7. Test Output](#317-test-output)
+  - [32. Bun as a Bundler](#32-bun-as-a-bundler)
+    - [32.1. What is a Bundler?](#321-what-is-a-bundler)
+    - [32.2. Building TypeScript to JavaScript](#322-building-typescript-to-javascript)
+      - [32.2.1. Basic Build](#3221-basic-build)
+    - [32.3. Build from Source Directory](#323-build-from-source-directory)
+    - [32.4. Minified Build](#324-minified-build)
+    - [32.5. Build Features](#325-build-features)
+  - [33. Important Notes \& Best Practices](#33-important-notes--best-practices)
+    - [33.1. Port 6000 Restriction](#331-port-6000-restriction)
+    - [33.2. Environment Variables Best Practices](#332-environment-variables-best-practices)
+    - [33.3. Package Manager Advantages](#333-package-manager-advantages)
+    - [33.4. TypeScript Support](#334-typescript-support)
+    - [33.5. Testing Advantages](#335-testing-advantages)
+  - [34. Common Patterns \& Examples](#34-common-patterns--examples)
+    - [34.1. API Server Template](#341-api-server-template)
+    - [34.2. File Operations Template](#342-file-operations-template)
+    - [34.3. Environment Setup Template](#343-environment-setup-template)
+  - [35. Comparison: Node.js vs Bun](#35-comparison-nodejs-vs-bun)
+  - [36. Conclusion](#36-conclusion)
+    - [36.1. Key Takeaways:](#361-key-takeaways)
+    - [36.2. When to Use **Bun**](#362-when-to-use-bun)
+    - [36.3. When to Stick with **Node.js**](#363-when-to-stick-with-nodejs)
+  - [37. Resources](#37-resources)
 ---
 
 ## 1. Introduction to Bun
@@ -575,6 +577,14 @@ bun run index.ts
 - Bun reads the file, translates it, and runs it
 - Output appears in your terminal
 - This is how servers start!
+  
+```bash
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ bun index.ts
+Hello via Bun!
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ bun run index.ts
+Hello via Bun!
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ 
+```
 
 #### 9.2.2. Watch Mode (Auto-reload on save)
 ```bash
@@ -601,7 +611,126 @@ console.log("Hello via Bun");
 - Used for displaying information, debugging, checking values
 - You'll see: `Hello via Bun` in your terminal
 
+```ts
+console.log("Hello!");
+console.log("I am Kintsugi-Programmer.");
+```
+```bash
+Hello!
+I am Kintsugi-Programmer.
+^C
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ 
+```
+
 ### 9.3. Package.json Scripts
+```bash
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ bun dev
+$ bun --watch index.ts
+Hello!
+I am Kintsugi-Programmer.
+
+
+
+^C
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ bun start
+$ bun index.ts
+Hello!
+I am Kintsugi-Programmer.
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ bun run
+Usage: bun run [flags] <file or script>
+
+Flags:
+      --silent                        Don't print the script command
+      --elide-lines=<val>             Number of lines of script output shown when using --filter (default: 10). Set to 0 to show all lines.
+  -F, --filter=<val>                  Run a script in all workspace packages matching the pattern
+  -b, --bun                           Force a script or package to use Bun's runtime instead of Node.js (via symlinking node)
+      --shell=<val>                   Control the shell used for package.json scripts. Supports either 'bun' or 'system'
+      --workspaces                    Run a script in all workspace packages (from the "workspaces" field in package.json)
+      --watch                         Automatically restart the process on file change
+      --hot                           Enable auto reload in the Bun runtime, test runner, or bundler
+      --no-clear-screen               Disable clearing the terminal screen on reload when --hot or --watch is enabled
+      --smol                          Use less memory, but run garbage collection more often
+  -r, --preload=<val>                 Import a module before other modules are loaded
+      --require=<val>                 Alias of --preload, for Node.js compatibility
+      --import=<val>                  Alias of --preload, for Node.js compatibility
+      --inspect=<val>                 Activate Bun's debugger
+      --inspect-wait=<val>            Activate Bun's debugger, wait for a connection before executing
+      --inspect-brk=<val>             Activate Bun's debugger, set breakpoint on first line of code and wait
+      --cpu-prof                      Start CPU profiler and write profile to disk on exit
+      --cpu-prof-name=<val>           Specify the name of the CPU profile file
+      --cpu-prof-dir=<val>            Specify the directory where the CPU profile will be saved
+      --if-present                    Exit without an error if the entrypoint does not exist
+      --no-install                    Disable auto install in the Bun runtime
+      --install=<val>                 Configure auto-install behavior. One of "auto" (default, auto-installs when no node_modules), "fallback" (missing packages only), "force" (always).
+  -i                                  Auto-install dependencies during execution. Equivalent to --install=fallback.
+  -e, --eval=<val>                    Evaluate argument as a script
+  -p, --print=<val>                   Evaluate argument as a script and print the result
+      --prefer-offline                Skip staleness checks for packages in the Bun runtime and resolve from disk
+      --prefer-latest                 Use the latest matching versions of packages in the Bun runtime, always checking npm
+      --port=<val>                    Set the default port for Bun.serve
+      --conditions=<val>              Pass custom conditions to resolve
+      --fetch-preconnect=<val>        Preconnect to a URL while code is loading
+      --max-http-header-size=<val>    Set the maximum size of HTTP headers in bytes. Default is 16KiB
+      --dns-result-order=<val>        Set the default order of DNS lookup results. Valid orders: verbatim (default), ipv4first, ipv6first
+      --expose-gc                     Expose gc() on the global object. Has no effect on Bun.gc().
+      --no-deprecation                Suppress all reporting of the custom deprecation.
+      --throw-deprecation             Determine whether or not deprecation warnings result in errors.
+      --title=<val>                   Set the process title
+      --zero-fill-buffers             Boolean to force Buffer.allocUnsafe(size) to be zero-filled.
+      --use-system-ca                 Use the system's trusted certificate authorities
+      --use-openssl-ca                Use OpenSSL's default CA store
+      --use-bundled-ca                Use bundled CA store
+      --redis-preconnect              Preconnect to $REDIS_URL at startup
+      --sql-preconnect                Preconnect to PostgreSQL at startup
+      --no-addons                     Throw an error if process.dlopen is called, and disable export condition "node-addons"
+      --unhandled-rejections=<val>    One of "strict", "throw", "warn", "none", or "warn-with-error-code"
+      --console-depth=<val>           Set the default depth for console.log object inspection (default: 2)
+      --user-agent=<val>              Set the default User-Agent header for HTTP requests
+      --main-fields=<val>             Main fields to lookup in package.json. Defaults to --target dependent
+      --preserve-symlinks             Preserve symlinks when resolving files
+      --preserve-symlinks-main        Preserve symlinks when resolving the main entry point
+      --extension-order=<val>         Defaults to: .tsx,.ts,.jsx,.js,.json
+      --tsconfig-override=<val>       Specify custom tsconfig.json. Default <d>$cwd<r>/tsconfig.json
+  -d, --define=<val>                  Substitute K:V while parsing, e.g. --define process.env.NODE_ENV:"development". Values are parsed as JSON.
+      --drop=<val>                    Remove function calls, e.g. --drop=console removes all console.* calls.
+      --feature=<val>                 Enable a feature flag for dead-code elimination, e.g. --feature=SUPER_SECRET
+  -l, --loader=<val>                  Parse files with .ext:loader, e.g. --loader .js:jsx. Valid loaders: js, jsx, ts, tsx, json, toml, text, file, wasm, napi
+      --no-macros                     Disable macros from being executed in the bundler, transpiler and runtime
+      --jsx-factory=<val>             Changes the function called when compiling JSX elements using the classic JSX runtime
+      --jsx-fragment=<val>            Changes the function called when compiling JSX fragments
+      --jsx-import-source=<val>       Declares the module specifier to be used for importing the jsx and jsxs factory functions. Default: "react"
+      --jsx-runtime=<val>             "automatic" (default) or "classic"
+      --jsx-side-effects              Treat JSX elements as having side effects (disable pure annotations)
+      --ignore-dce-annotations        Ignore tree-shaking annotations such as @__PURE__
+      --env-file=<val>                Load environment variables from the specified file(s)
+      --no-env-file                   Disable automatic loading of .env files
+      --cwd=<val>                     Absolute path to resolve files & entry points from. This just changes the process' cwd.
+  -c, --config=<val>                  Specify path to Bun config file. Default <d>$cwd<r>/bunfig.toml
+  -h, --help                          Display this menu and exit
+
+Examples:
+  Run a JavaScript or TypeScript file
+  bun run ./index.js
+  bun run ./index.tsx
+
+  Run a package.json script
+  bun run dev
+  bun run lint
+
+Full documentation is available at https://bun.com/docs/cli/run
+
+package.json scripts (2 found):
+  $ bun run dev
+    bun --watch index.ts
+
+  $ bun run start
+    bun index.ts
+
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ 
+```
+
+---
 
 **Setup scripts:**
 ```json
