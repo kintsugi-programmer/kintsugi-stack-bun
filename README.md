@@ -1938,6 +1938,79 @@ console.log(isEqual); // true
 ---
 
 ## 17. HTTP Server with Bun.serve
+```ts
+const port = Bun.env.PORT || 8000 ;
+const server = Bun.serve(
+    {
+        port:port,
+        fetch(req){
+            return new Response("Status: OK");
+        }
+    }
+);
+
+console.info(`Server is running on port ${server.port}`);
+// Server is running on port 8000
+```
+```ts
+const port = Bun.env.PORT || 8000 ;
+const server = Bun.serve ({
+    port:port,
+    fetch(req){
+        const url = new URL(req.url);
+
+        // Static Routes
+        if (url.pathname === "/api/health") {
+            return new Response("Status: OK");
+        }
+
+        return new Response("Route not found",{status:404});
+    }
+});
+
+console.info(`Server is running on port ${server.port}`);
+```
+```ts
+const port = Bun.env.PORT || 8000 ;
+const server = Bun.serve({
+    port:port,
+    fetch(req){
+        const url = new URL(req.url);
+        
+        // Dynamic Routes
+        const pathPaths = url.pathname.split('/');
+        if (
+            // pathPaths[0] is empty always
+            pathPaths[1] === "api"
+            &&
+            pathPaths[2]
+        ){
+            const id = pathPaths[2];
+            return new Response(`ID is: ${id}`); // Use backticks for dynamic string construction
+        }
+
+        return new Response("Route not found",{status:404});
+    }
+});
+
+console.info(`Server is running on port ${server.port}`);
+```
+```ts
+const port = Bun.env.PORT || 8000 ;
+const server = Bun.serve({
+    port:port,
+    routes: {
+        "/api/health": () => new Response("Status: OK"),
+        "/api/:id": (req) => {return new Response(`ID is: ${req.params.id}`);}
+    },
+    fetch(){ // Catch all for unmatched routes
+        return new Response("Route not found",{status:404});
+    }
+});
+
+console.info(`Server is running on port ${server.port}`);
+```
+---
 
 ### 17.1. What is an HTTP Server?
 - **HTTP Server** = Program that listens for requests and sends responses
@@ -1989,6 +2062,9 @@ Bun.serve({
 });
 ```
 
+![alt text](image-3.png)
+![alt text](image-4.png)
+
 **Key Points:**
 - **fetch() handler:** Called for every incoming HTTP request to the server
 - **URL parsing:** `new URL(req.url)` extracts components from the request URL
@@ -2016,6 +2092,7 @@ Bun.serve({
   }
 });
 ```
+![alt text](image-5.png)
 
 **Key Points:**
 - **pathname.split('/'):** Splits URL path into segments (e.g., "/api/123" → ["", "api", "123"])
@@ -2045,6 +2122,9 @@ Bun.serve({
   }
 });
 ```
+
+![alt text](image-6.png)
+![alt text](image-7.png)
 
 **Key Points:**
 - **routes object:** Maps URL paths to handler functions (cleaner than if/else)
