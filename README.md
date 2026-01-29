@@ -2551,6 +2551,26 @@ GET http://localhost:8000/api/posts?page=1&limit=10
 ---
 
 ## 20. Rendering HTML Pages
+```html
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>
+        Welcome to Home
+    </h1>
+</body>
+</html>
+```
+```ts
+import homePage from "./home.html";
+Bun.serve({
+    port:8000,
+    routes:{ "/home": homePage } // automatic serialize
+}
+)
+```
+
+---
 
 ### 20.1. What is HTML?
 - **HTML** = HyperText Markup Language (structure of web pages)
@@ -2601,6 +2621,31 @@ Bun.serve({
 
 ## 21. URL Redirection
 
+```ts
+import homePage from "./home.html";
+Bun.serve({
+    port:8000,
+    routes:{ 
+        "/home": homePage,
+        "/ge": Response.redirect("https://google.com")
+        
+     } // automatic serialize
+}
+)
+```
+```html
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>
+        Welcome to Home
+    </h1>
+</body>
+</html>
+```
+
+---
+
 ```typescript
 "/go-to-google": () => {
   return Response.redirect("https://google.com");
@@ -2621,6 +2666,39 @@ Bun.serve({
 
 ## 22. Global Error Handling
 
+```ts
+import homePage from "./home.html";
+Bun.serve({
+    port:8000,
+    routes:{ 
+        "/home": homePage,
+        "/ge": Response.redirect("https://google.com"),
+        "/error": () => {
+            throw new Error("This is hypothetical Test Error");
+        }
+        
+     }, // automatic serialize
+
+     error(error){
+        console.error(error);
+        return new Response("Internal Server Error", {status:500});
+     }
+}
+)
+```
+```html
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>
+        Welcome to Home
+    </h1>
+</body>
+</html>
+```
+
+---
+
 ```typescript
 Bun.serve({
   port: 8000,
@@ -2636,6 +2714,9 @@ Bun.serve({
   }
 });
 ```
+
+![alt text](image-23.png)
+![alt text](image-24.png)
 
 **Key Points:**
 - **error() handler:** Catches uncaught exceptions in route handlers
