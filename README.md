@@ -2607,6 +2607,8 @@ Bun.serve({
 }
 ```
 
+![alt text](image-22.png)
+
 **Key Points:**
 - **Response.redirect():** Creates HTTP redirect response
 - **Default status:** Uses 302 (temporary redirect) status code
