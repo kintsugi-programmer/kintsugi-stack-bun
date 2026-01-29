@@ -2578,12 +2578,15 @@ import homePage from "./home.html";
 Bun.serve({
   port: 8000,
   routes: {
-    "/home": () => homePage
+    "/home": homePage // automatic serialize
   }
 });
 ```
 
 **Access at:** `http://localhost:8000/home`
+
+![alt text](image-20.png)
+![alt text](image-21.png)
 
 **Key Points:**
 - **HTML import:** Bun treats HTML files as importable resources

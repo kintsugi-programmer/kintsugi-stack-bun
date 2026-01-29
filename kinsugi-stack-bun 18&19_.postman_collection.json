@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "4cafa858-d9db-4d85-aefe-cebd326cb86d",
-    "name": "kinsugi-stack-bun 18_",
+    "name": "kinsugi-stack-bun 18&19_",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "43597602",
     "_collection_link": "https://go.postman.co/collection/43597602-4cafa858-d9db-4d85-aefe-cebd326cb86d?source=collection_link"
@@ -142,6 +142,26 @@
     },
     {
       "name": "GET HEALTH",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "QUERY PARAMETERS",
       "request": {
         "method": "GET",
         "header": [],
