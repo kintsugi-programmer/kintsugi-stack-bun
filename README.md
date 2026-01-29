@@ -2172,6 +2172,67 @@ console.info(`Server is running on port ${server.port}`);
 
 ## 18. Complete CRUD API Example
 
+```ts
+// Setup
+type TPost = {id:string;title:string;};
+let posts: TPost[] = [];
+
+// Server
+const port = Bun.env.PORT || 8000 ;
+const server = Bun.serve({
+    port: 8000,
+    routes: {
+        "/api/posts": {
+            // GET All Posts
+            GET: () => Response.json(posts),
+
+            // POST Create Post
+            POST: async (req) => {
+                const body = await req.json() as Omit<TPost,"id">;
+                posts.push({
+                    id: crypto.randomUUID(),
+                    title: body.title
+                });
+                return new Response("Created");
+            }
+        },
+        "/api/posts/:id": {
+            // PUT Update Post
+            PUT: async(req) => {
+                const id = req.params.id as string;
+                const body = await req.json() as Omit<TPost,"id">;
+
+                const postIndex = posts.findIndex(post => post.id === id);
+
+                if (postIndex === -1){
+                    return new Response("Post Not found",{status: 404});
+                }
+                posts[postIndex]!.title = body.title;
+                return new Response("Updated");
+            },
+
+            // DELETE Post
+            DELETE: (req) => {
+                const id = req.params.id as string;
+
+                const postIndex = posts.findIndex(post => post.id === id);
+
+                if (postIndex === -1){
+                    return new Response("Post Not found",{status: 404});
+                }
+
+                posts.splice(postIndex,1);
+
+                return new Response("Deleted");
+            },
+        }
+    }
+})
+
+```
+
+---
+
 ### 18.1. What is CRUD?
 - **CRUD** = Create, Read, Update, Delete (four basic operations on data)
 - **Create** = Add new data (POST request)
@@ -2208,6 +2269,14 @@ let posts: TPost[] = [];
 }
 ```
 
+![alt text](image-8.png)
+
+**Key Points:**
+- **Response.json():** Bun's utility to return JSON data
+- **Automatic Headers:** Sets `Content-Type: application/json` automatically
+- **Serialization:** Automatically stringifies the object/array
+- **Status Code:** Defaults to 200 OK
+
 ### 18.5. POST Create Post
 
 ```typescript
@@ -2225,6 +2294,16 @@ let posts: TPost[] = [];
 }
 ```
 
+![alt text](image-9.png)
+
+![alt text](image-10.png)
+
+**Key Points:**
+- **req.json():** Returns a Promise that resolves to the parsed JSON body
+- **Type Assertion:** `as Omit<TPost, "id">` ensures type safety (excluding ID which server generates)
+- **crypto.randomUUID():** Native, fast UUID v4 generation
+- **posts.push():** Adds the new record to our in-memory array storage
+
 ### 18.6. PUT Update Post
 
 ```typescript
@@ -2239,11 +2318,23 @@ let posts: TPost[] = [];
       return new Response("Post not found", { status: 404 });
     }
     
-    posts[postIndex].title = body.title;
+    posts[postIndex]!.title = body.title;
     return new Response("Updated");
   }
 }
 ```
+
+![alt text](image-11.png)
+![alt text](image-12.png)
+![alt text](image-13.png)
+![alt text](image-14.png)
+![alt text](image-15.png)
+
+**Key Points:**
+- **req.params.id:** Captures the dynamic `:id` segment from the URL
+- **findIndex:** Locates the element to update (returns -1 if not found)
+- **Error Handling:** Explicit 404 response if the ID doesn't exist
+- **Direct Mutation:** Updates the object property directly in the memory array
 
 ### 18.7. DELETE Post
 
@@ -2262,6 +2353,15 @@ let posts: TPost[] = [];
   }
 }
 ```
+
+![alt text](image-16.png)
+![alt text](image-17.png)
+![alt text](image-18.png)
+
+**Key Points:**
+- **Array Mutation:** `splice(index, 1)` removes exactly one element at the found index
+- **Validation:** Always check if the item exists (`index !== -1`) before attempting to remove
+- **Response:** Returns simple text confirmation; typical REST APIs might return 204 No Content
 
 ### 18.8. Complete Server Code
 
