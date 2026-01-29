@@ -7,10 +7,24 @@ const port = Bun.env.PORT || 8000 ;
 const server = Bun.serve({
     port: port,
     routes: {
-                "/api/health": new Response ("Status OK"),
+        "/api/health": new Response ("Status OK"),
         "/api/posts": {
             // GET All Posts
-            GET: () => Response.json(posts),
+            // GET: () => Response.json(posts), // Old
+            GET: (req) => {
+                  const parsedUrl = new URL(req.url);  
+    // Method 1: Get individual parameters
+    const page = parsedUrl.searchParams.get("page");
+    const limit = parsedUrl.searchParams.get("limit");
+    console.log(page, limit); // "1" "10"
+    
+    // Method 2: Get all parameters as object
+    const params = Object.fromEntries(parsedUrl.searchParams.entries());
+    console.log(params) // { page: "1", limit: "10" }
+
+                return Response.json(posts);
+            },
+
 
             // POST Create Post
             POST: async (req) => {
