@@ -3104,8 +3104,7 @@ const html = await response.text(); // Full HTML content
 
 ## 28. Web APIs
 
-Bun supports standard Web APIs:
-- https://bun.com/docs/runtime/web-apis
+Bun supports standard Web APIs: https://bun.com/docs/runtime/web-apis
 
 ![alt text](image-27.png)
 
