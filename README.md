@@ -167,7 +167,7 @@
     - [31.5. Running Tests](#315-running-tests)
     - [31.6. Testing Functions](#316-testing-functions)
     - [31.7. Test Output](#317-test-output)
-  - [32. Bun as a Bundler (IMP)](#32-bun-as-a-bundler-imp)
+  - [32. Bun as a Bundler](#32-bun-as-a-bundler)
     - [32.1. What is a Bundler?](#321-what-is-a-bundler)
     - [32.2. Building TypeScript to JavaScript](#322-building-typescript-to-javascript)
       - [32.2.1. Basic Build](#3221-basic-build)
@@ -3631,7 +3631,9 @@ bun test
 
 ---
 
-## 32. Bun as a Bundler (IMP)
+## 32. Bun as a Bundler
+
+---
 
 ### 32.1. What is a Bundler?
 - **Bundler** = Tool that combines multiple files into optimized output
@@ -3664,6 +3666,8 @@ build/
 └── index.js
 ```
 
+![alt text](image-34.png)
+
 ### 32.3. Build from Source Directory
 
 **Project structure:**
@@ -3676,7 +3680,7 @@ src/
 
 **src/index.ts:**
 ```typescript
-import { getConfigs } from "./config";
+import { getConfigs } from "../config";
 console.log(getConfigs());
 ```
 
@@ -3713,7 +3717,7 @@ bun build ./src/index.ts --outdir ./build
   },
   "private": true,
   "scripts": {
-    "start": "bun --env-file=.env.production index.js", 
+    "start": "bun --env-file=.env.production build/index.js", 
     // .ts -> .js
     "dev": "bun --watch --env-file=.env.development index.ts"
   },
@@ -3727,6 +3731,8 @@ bun start
 # Output: { env: "development" }
 ```
 
+![alt text](image-35.png)
+
 ### 32.4. Minified Build
 
 ```bash
@@ -3734,6 +3740,8 @@ bun build ./src/index.ts --outdir ./build --minify
 ```
 
 **Result:** Compressed, unreadable code (smaller file size)
+
+![alt text](image-36.png)
 
 ### 32.5. Build Features
 
