@@ -167,7 +167,7 @@
     - [31.5. Running Tests](#315-running-tests)
     - [31.6. Testing Functions](#316-testing-functions)
     - [31.7. Test Output](#317-test-output)
-  - [32. Bun as a Bundler](#32-bun-as-a-bundler)
+  - [32. Bun as a Bundler (IMP)](#32-bun-as-a-bundler-imp)
     - [32.1. What is a Bundler?](#321-what-is-a-bundler)
     - [32.2. Building TypeScript to JavaScript](#322-building-typescript-to-javascript)
       - [32.2.1. Basic Build](#3221-basic-build)
@@ -3022,6 +3022,34 @@ console.log(color); // #ff0000
 
 ## 27. Shell Scripting with Bun
 
+```ts
+import { $ } from "bun"; // $ library for shell scripting
+
+// Basic Shell Command Execution
+await $`echo "Hello, World!"`; // echo command // async/await syntax // template literal syntax `` backticks
+// runs the command in a shell and waits for it to complete
+// Hello, World!
+
+// Fetching and Piping
+const response = await fetch("https://example.com");
+
+const clone = response.clone();
+
+await $`cat < ${clone} | wc -c`; // consumes clone
+const html = await response.text(); // original still usable
+
+console.log(html)
+
+// ➜  27_ git:(main) ✗ bun index.ts
+// Hello, World!
+//      513
+// <!doctype html><html lang="en"><head><title>Example Domain</title><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{background:#eee;width:60vw;margin:15vh auto;font-family:system-ui,sans-serif}h1{font-size:1.5em}div{opacity:0.8}a:link,a:visited{color:#348}</style><body><div><h1>Example Domain</h1><p>This domain is for use in documentation examples without needing permission. Avoid use in operations.<p><a href="https://iana.org/domains/example">Learn more</a></div></body></html>
+//
+// ➜  27_ git:(main) ✗ 
+```
+
+---
+
 ### 27.1. Basic Shell Commands
 
 ```typescript
@@ -3043,10 +3071,9 @@ await $`echo "Hello World"`;
 ```typescript
 import { $ } from "bun";
 
-// Fetch webpage and get size
+// Fetching and Piping
 const response = await fetch("https://example.com");
-const size = await $`cat | wc -c`.stdin(response);
-console.log(size); // 1256
+await $`cat < ${response} | wc -c`; // size
 ```
 
 **Key Points:**
@@ -3062,8 +3089,7 @@ import { $ } from "bun";
 
 // Get webpage content
 const response = await fetch("https://example.com");
-const html = await $`cat`.stdin(response);
-console.log(html); // Full HTML content
+const html = await response.text(); // Full HTML content
 ```
 
 **Key Points:**
@@ -3072,11 +3098,14 @@ console.log(html); // Full HTML content
 - **Use case:** Web scraping, data extraction, automation
 - **Benefit:** No need for separate parsing libraries
 
+![alt text](image-26.png)
+
 ---
 
 ## 28. Web APIs
 
 Bun supports standard Web APIs:
+- https://bun.com/docs/runtime/web-apis
 
 ### 28.1. Available APIs:
 
@@ -3195,7 +3224,7 @@ bun install
 # Regular dependency
 bun add zod
 
-# Specific version
+# Specific version 
 bun add zod@3.0.0
 
 # Dev dependency
@@ -3203,6 +3232,8 @@ bun add -D prettier
 
 # Global package
 bun add -g cowsay
+
+# even update/readd is much faster because bun knows that it's version is installed and do relevant changes
 ```
 
 ### 29.3. Removing Dependencies
@@ -3266,6 +3297,10 @@ bun add zod@3.0.0
 
 ### 30.1. Creating Projects from Templates
 
+- https://bun.com/docs/guides/ecosystem/vite
+- https://bun.com/docs/guides/ecosystem/hono
+- https://bun.com/docs/guides/ecosystem/nextjs
+
 #### 30.1.1. React + Vite Project
 ```bash
 bun create vite react-app
@@ -3318,7 +3353,7 @@ Common templates you can use:
 
 #### 31.3.1. Test File Structure
 
-Create test files with these naming patterns:
+Create test files with any of these naming patterns:
 - `*.test.ts`
 - `*.spec.ts`
 - `*_test.ts`
@@ -3384,7 +3419,7 @@ bun test
 
 ---
 
-## 32. Bun as a Bundler
+## 32. Bun as a Bundler (IMP)
 
 ### 32.1. What is a Bundler?
 - **Bundler** = Tool that combines multiple files into optimized output
@@ -3400,6 +3435,8 @@ bun test
 
 ```bash
 bun build ./index.ts --outdir ./build
+bun build index.ts --outdir build # or
+
 ```
 
 **What's happening:**
@@ -3449,6 +3486,26 @@ bun build ./src/index.ts --outdir ./build
   "scripts": {
     "start": "bun ./build/index.js"
   }
+}
+```
+
+```json
+{
+  "name": "bun",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "private": true,
+  "scripts": {
+    "start": "bun --env-file=.env.production index.js", 
+    // .ts -> .js
+    "dev": "bun --watch --env-file=.env.development index.ts"
+  },
+  "type": "module"
 }
 ```
 
