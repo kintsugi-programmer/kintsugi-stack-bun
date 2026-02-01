@@ -2934,7 +2934,7 @@ for await (const line of console){ // Iterate over console input line by line
 
 // Updated Count: 10332
 // ^C
-// ➜  25_ git:(main) ✗ 
+// ➜  25_ git:(main) ✗
 ```
 
 ---
@@ -2973,6 +2973,26 @@ bun run dev
 ---
 
 ## 26. Color API
+
+```ts
+const whiteToRGBA = Bun.color("white","rgba"); // css to rgba
+console.log(whiteToRGBA); 
+// rgba(255, 255, 255, 1)
+
+const whiteToHEX = Bun.color("white","hex"); // css to hex
+console.log(whiteToHEX); 
+// #ffffff
+
+const rgbaToCSS = Bun.color("rgba(255, 0, 0, 1)","css"); // rgba to css
+console.log(rgbaToCSS); 
+// red
+
+const RGBToHEX = Bun.color("rgb(0, 255, 0)","hex"); // rgb to hex
+console.log(RGBToHEX); 
+// #00ff00
+```
+
+---
 
 ### 26.1. Converting Color Formats
 
