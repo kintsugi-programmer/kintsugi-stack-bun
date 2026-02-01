@@ -3420,6 +3420,15 @@ bun add zod@3.0.0
 
 ## 30. Bun Create Command
 
+```sh
+bun create vite               # Scaffold a Vite frontend project with Bun
+bun create hono               # Scaffold a Hono backend project
+bun create next               # Scaffold a Next.js project (modern CLI)
+bun create next-app           # Scaffold a Next.js app (older/alternate CLI)
+```
+
+---
+
 ### 30.1. Creating Projects from Templates
 
 - https://bun.com/docs/guides/ecosystem/vite
@@ -3437,6 +3446,9 @@ bun install
 bun run dev
 ```
 
+![alt text](image-30.png)
+![alt text](image-31.png)
+
 #### 30.1.2. Hono.js Project
 ```bash
 bun create hono hono-app
@@ -3447,6 +3459,8 @@ cd hono-app
 bun run dev
 ```
 
+![alt text](image-32.png)
+
 ### 30.2. Available Templates
 
 Common templates you can use:
@@ -3454,6 +3468,8 @@ Common templates you can use:
 - `hono` - Fast web framework
 - `next` - Next.js framework
 - `elysia` - TypeScript framework
+
+![alt text](image-33.png)
 
 ---
 
