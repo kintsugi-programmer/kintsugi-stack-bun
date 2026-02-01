@@ -3107,6 +3107,8 @@ const html = await response.text(); // Full HTML content
 Bun supports standard Web APIs:
 - https://bun.com/docs/runtime/web-apis
 
+![alt text](image-27.png)
+
 ### 28.1. Available APIs:
 
 1. **Fetch API**
