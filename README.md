@@ -4,7 +4,7 @@
 
 - Author: [Kintsugi-Programmer](https://github.com/kintsugi-programmer)
 
-![alt text](image.png)
+![alt text](assets/images/image.webp)
 
 > Disclaimer: The content presented here is a curated blend of my personal learning journey, experiences, open-source documentation, and invaluable knowledge gained from diverse sources. I do not claim sole ownership over all the material; this is a community-driven effort to learn, share, and grow together.
 
@@ -1085,10 +1085,10 @@ Now you get autocomplete and type checking:
 process.env.PORT // ✓ Autocomplete works!
 ```
 - without `env.d.ts`
-  - ![alt text](image-2.png)
+  - ![alt text](assets/images/image-2.webp)
     - no autocomplete/suggestions
 - with `env.d.ts`
-  - ![alt text](image-1.png)
+  - ![alt text](assets/images/image-1.webp)
     - now we got suggestions
 
 ### 11.5. Multiple Environment Files
@@ -2079,8 +2079,8 @@ Bun.serve({
 });
 ```
 
-![alt text](image-3.png)
-![alt text](image-4.png)
+![alt text](assets/images/image-3.webp)
+![alt text](assets/images/image-4.webp)
 
 **Key Points:**
 - **fetch() handler:** Called for every incoming HTTP request to the server
@@ -2109,7 +2109,7 @@ Bun.serve({
   }
 });
 ```
-![alt text](image-5.png)
+![alt text](assets/images/image-5.webp)
 
 **Key Points:**
 - **pathname.split('/'):** Splits URL path into segments (e.g., "/api/123" → ["", "api", "123"])
@@ -2156,8 +2156,8 @@ const server = Bun.serve({
 console.info(`Server is running on port ${server.port}`);
 ```
 
-![alt text](image-6.png)
-![alt text](image-7.png)
+![alt text](assets/images/image-6.webp)
+![alt text](assets/images/image-7.webp)
 
 **Key Points:**
 - **routes object:** Maps URL paths to handler functions (cleaner than if/else)
@@ -2270,7 +2270,7 @@ let posts: TPost[] = [];
 }
 ```
 
-![alt text](image-8.png)
+![alt text](assets/images/image-8.webp)
 
 **Key Points:**
 - **Response.json():** Bun's utility to return JSON data
@@ -2295,9 +2295,9 @@ let posts: TPost[] = [];
 }
 ```
 
-![alt text](image-9.png)
+![alt text](assets/images/image-9.webp)
 
-![alt text](image-10.png)
+![alt text](assets/images/image-10.webp)
 
 **Key Points:**
 - **req.json():** Returns a Promise that resolves to the parsed JSON body
@@ -2325,11 +2325,11 @@ let posts: TPost[] = [];
 }
 ```
 
-![alt text](image-11.png)
-![alt text](image-12.png)
-![alt text](image-13.png)
-![alt text](image-14.png)
-![alt text](image-15.png)
+![alt text](assets/images/image-11.webp)
+![alt text](assets/images/image-12.webp)
+![alt text](assets/images/image-13.webp)
+![alt text](assets/images/image-14.webp)
+![alt text](assets/images/image-15.webp)
 
 **Key Points:**
 - **req.params.id:** Captures the dynamic `:id` segment from the URL
@@ -2355,9 +2355,9 @@ let posts: TPost[] = [];
 }
 ```
 
-![alt text](image-16.png)
-![alt text](image-17.png)
-![alt text](image-18.png)
+![alt text](assets/images/image-16.webp)
+![alt text](assets/images/image-17.webp)
+![alt text](assets/images/image-18.webp)
 
 **Key Points:**
 - **Array Mutation:** `splice(index, 1)` removes exactly one element at the found index
@@ -2537,7 +2537,7 @@ const server = Bun.serve({
 GET http://localhost:8000/api/posts?page=1&limit=10
 ```
 
-![alt text](image-19.png)
+![alt text](assets/images/image-19.webp)
 
 **Key Points:**
 - **URL constructor:** Parses the request URL into components
@@ -2605,8 +2605,8 @@ Bun.serve({
 
 **Access at:** `http://localhost:8000/home`
 
-![alt text](image-20.png)
-![alt text](image-21.png)
+![alt text](assets/images/image-20.webp)
+![alt text](assets/images/image-21.webp)
 
 **Key Points:**
 - **HTML import:** Bun treats HTML files as importable resources
@@ -2652,7 +2652,7 @@ Bun.serve({
 }
 ```
 
-![alt text](image-22.png)
+![alt text](assets/images/image-22.webp)
 
 **Key Points:**
 - **Response.redirect():** Creates HTTP redirect response
@@ -2715,8 +2715,8 @@ Bun.serve({
 });
 ```
 
-![alt text](image-23.png)
-![alt text](image-24.png)
+![alt text](assets/images/image-23.webp)
+![alt text](assets/images/image-24.webp)
 
 **Key Points:**
 - **error() handler:** Catches uncaught exceptions in route handlers
@@ -2859,7 +2859,7 @@ fetch(req, server) {
 }
 ```
 
-![alt text](image-25.png)
+![alt text](assets/images/image-25.webp)
 
 **Key Points:**
 - **server.requestIP():** Retrieves client's IP address and port
@@ -3098,7 +3098,7 @@ const html = await response.text(); // Full HTML content
 - **Use case:** Web scraping, data extraction, automation
 - **Benefit:** No need for separate parsing libraries
 
-![alt text](image-26.png)
+![alt text](assets/images/image-26.webp)
 
 ---
 
@@ -3106,7 +3106,7 @@ const html = await response.text(); // Full HTML content
 
 Bun supports standard Web APIs: https://bun.com/docs/runtime/web-apis
 
-![alt text](image-27.png)
+![alt text](assets/images/image-27.webp)
 
 ### 28.1. Available APIs:
 
@@ -3322,8 +3322,8 @@ Or add it in dependencies in your package.json file:
 ➜  29_ git:(main) ✗ 
 ```
 
-![alt text](image-28.png)
-![alt text](image-29.png)
+![alt text](assets/images/image-28.webp)
+![alt text](assets/images/image-29.webp)
 
 ---
 
@@ -3446,8 +3446,8 @@ bun install
 bun run dev
 ```
 
-![alt text](image-30.png)
-![alt text](image-31.png)
+![alt text](assets/images/image-30.webp)
+![alt text](assets/images/image-31.webp)
 
 #### 30.1.2. Hono.js Project
 ```bash
@@ -3459,7 +3459,7 @@ cd hono-app
 bun run dev
 ```
 
-![alt text](image-32.png)
+![alt text](assets/images/image-32.webp)
 
 ### 30.2. Available Templates
 
@@ -3469,7 +3469,7 @@ Common templates you can use:
 - `next` - Next.js framework
 - `elysia` - TypeScript framework
 
-![alt text](image-33.png)
+![alt text](assets/images/image-33.webp)
 
 ---
 
@@ -3666,7 +3666,7 @@ build/
 └── index.js
 ```
 
-![alt text](image-34.png)
+![alt text](assets/images/image-34.webp)
 
 ### 32.3. Build from Source Directory
 
@@ -3731,7 +3731,7 @@ bun start
 # Output: { env: "development" }
 ```
 
-![alt text](image-35.png)
+![alt text](assets/images/image-35.webp)
 
 ### 32.4. Minified Build
 
@@ -3741,7 +3741,7 @@ bun build ./src/index.ts --outdir ./build --minify
 
 **Result:** Compressed, unreadable code (smaller file size)
 
-![alt text](image-36.png)
+![alt text](assets/images/image-36.webp)
 
 ### 32.5. Build Features
 
