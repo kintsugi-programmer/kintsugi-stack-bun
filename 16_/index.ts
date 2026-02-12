@@ -3,12 +3,7 @@ console.log(Bun.version); // Bun version
 
 console.log(Bun.env); // fast all .env return as obj
 // {
-//   SHELL: "/bin/bash",
-//   NUGET_XMLDOC_MODE: "skip",
-//   COLORTERM: "truecolor",
-//   CLOUDENV_ENVIRONMENT_ID: "76db0ef8-61ab-4e37-9aef-28af2d99ebbb",
-//   NVM_INC: "/usr/local/share/nvm/versions/node/v24.11.1/include/node",
-//   TERM_PROGRAM_VERSION: "1.108.2"
+// ENV VARS
 // }
 
 await Bun.sleep(5000); // 5sec pause execution // No need to construct wrapper with Promises like trad. js // for Rate limiting
