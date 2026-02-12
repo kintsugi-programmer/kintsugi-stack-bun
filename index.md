@@ -2824,7 +2824,7 @@ flowchart TD
     E --> F{"Timeout<br/>Exceeded?"}
     F -->|Yes| G["Abort Request"]
     F -->|No| H["Return Response"]
-    G --> I{"Stop<br/>Signal?"]
+    G --> I{"Stop<br/>Signal?"}
     H --> I
     I -->|Graceful| J["Wait for Active<br/>Requests"]
     I -->|Force| K["Immediate Close"]
