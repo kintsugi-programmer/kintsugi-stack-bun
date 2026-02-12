@@ -82,6 +82,18 @@ Before diving into Bun, let's understand the foundational concepts:
 - **Server** = Computer that stores data and responds to requests
 - **Flow**: Client → Request → Server → Processing → Response → Client receives data
 
+```mermaid
+sequenceDiagram
+    actor Client
+    participant Server
+    Client->>Server: HTTP Request
+    activate Server
+    Server->>Server: Process Request
+    Server-->>Client: HTTP Response
+    deactivate Server
+    Client->>Client: Render/Display
+```
+
 ---
 
 ## 3. Course Overview
@@ -767,6 +779,19 @@ console.log(makeName("Kintsugi", "Programmer"));
 ---
 
 ## 11. Environment Variables
+
+```mermaid
+flowchart TD
+    A["Application Startup"] --> B{"Which .env to Load?"}
+    B -->|If .env.local exists| C["Load .env.local"]
+    B -->|Else if .env.development| D["Load .env.development"]
+    B -->|Else .env.production| E["Load .env.production"]
+    C --> F["Process Config"]
+    D --> F
+    E --> F
+    F --> G["Access via process.env<br/>Bun.env<br/>import.meta.env"]
+    G --> H["Runtime Ready"]
+```
 ```ts
 // index.ts
 
@@ -1055,6 +1080,26 @@ bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$
 - **File I/O** = Reading data from files or saving data to files
 - Needed for: storing data, loading configuration, saving user uploads, logs
 - **Async** = Non-blocking (code continues while file is being read/written)
+
+```mermaid
+flowchart TD
+    A["File Operation Request"] --> B{"Operation Type?"}
+    B -->|Read File| C["Check if Exists"]
+    B -->|Write File| D["Create/Overwrite"]
+    B -->|Copy File| E["Source Ref"]
+    C --> C1{"File Found?"}
+    C1 -->|Yes| F["Load Content"]
+    C1 -->|No| G["Return false"]
+    F --> H["Return File Data"]
+    D --> I["Write to Disk"]
+    E --> J["Reference without<br/>Loading to Memory"]
+    I --> K["Return Bytes Written"]
+    J --> L["Copy Complete"]
+    H --> M["Operation Complete"]
+    G --> M
+    K --> M
+    L --> M
+```
 
 ### 12.2. Reading Files with Bun.file
 
@@ -1668,6 +1713,24 @@ if (isValidPassword) {
 }
 ```
 
+```mermaid
+sequenceDiagram
+    actor User
+    participant App
+    participant Database
+    User->>App: Register with password
+    App->>App: Hash password
+    App->>Database: Save user + hashed password
+    User->>App: Login with password
+    App->>Database: Fetch stored hash
+    App->>App: Verify input vs stored hash
+    alt Passwords match
+        App-->>User: Login successful
+    else Passwords don't match
+        App-->>User: Invalid credentials
+    end
+```
+
 ### 15.4. Argon2 Algorithm
 
 ```typescript
@@ -1967,6 +2030,15 @@ Bun.serve({
 });
 ```
 
+```mermaid
+flowchart TD
+    A["Incoming Request"] --> B{"Is pathname<br/>/api/health?"}
+    B -->|Yes| C["Return 200: OK"]
+    B -->|No| D["Return 404: Not Found"]
+    C --> E["Response Sent"]
+    D --> E
+```
+
 ![alt text](images/image-3.webp)
 ![alt text](images/image-4.webp)
 
@@ -2062,6 +2134,32 @@ console.info(`Server is running on port ${server.port}`);
 ---
 
 ## 18. Complete CRUD API Example
+
+```mermaid
+flowchart LR
+    A["Client Request"] --> B{"HTTP Method?"}
+    B -->|GET /api/posts| C["Fetch All Posts"]
+    B -->|POST /api/posts| D["Create New Post"]
+    B -->|PUT /api/posts/:id| E["Update Post"]
+    B -->|DELETE /api/posts/:id| F["Delete Post"]
+    C --> G["Return JSON Array"]
+    D --> H["Generate UUID<br/>Add to Array"]
+    E --> I{"Post Exists?"}
+    F --> J{"Post Exists?"}
+    I -->|Yes| K["Update Properties"]
+    I -->|No| L["Return 404"]
+    J -->|Yes| M["Remove from Array"]
+    J -->|No| N["Return 404"]
+    H --> O["Return Created"]
+    K --> P["Return Updated"]
+    M --> Q["Return Deleted"]
+    G --> R["Response Sent"]
+    O --> R
+    P --> R
+    Q --> R
+    L --> R
+    N --> R
+```
 
 ```ts
 // Setup
@@ -2321,6 +2419,20 @@ console.info(`Server running on port ${server.port}`);
 
 ## 19. Query Parameters
 
+```mermaid
+flowchart LR
+    A["Request URL"] --> B["Parse Query String"]
+    B --> C["Extract Parameters"]
+    C --> D{"Method?"}
+    D -->|get by key| E["searchParams.get"]
+    D -->|get all as object| F["Object.fromEntries"]
+    E --> G["Returns string<br/>or null"]
+    F --> H["Returns Object<br/>of all params"]
+    G --> I["Application Logic"]
+    H --> I
+    I --> J["Process Request<br/>with Filters"]
+```
+
 ```ts
 // Setup
 type TPost = {id:string;title:string;};
@@ -2566,6 +2678,19 @@ Bun.serve({
 
 ## 22. Global Error Handling
 
+```mermaid
+flowchart TD
+    A["Request Arrives"] --> B["Route Handler Executes"]
+    B --> C{"Error Thrown?"}
+    C -->|No| D["Return Response"]
+    C -->|Yes| E["Error Bubbles Up"]
+    E --> F["Global error Handler<br/>Catches Exception"]
+    F --> G["Log Error Details"]
+    G --> H["Return 500 Response<br/>to Client"]
+    D --> I["Response Sent"]
+    H --> I
+```
+
 ```ts
 import homePage from "./home.html";
 Bun.serve({
@@ -2678,6 +2803,23 @@ Bun.serve({
 ---
 
 ## 24. Server Utilities
+
+```mermaid
+flowchart TD
+    A["Server Running"] --> B["Incoming Request"]
+    B --> C["Get Client IP"]
+    C --> D["Set Request Timeout"]
+    D --> E["Handler Executes"]
+    E --> F{"Timeout<br/>Exceeded?"}
+    F -->|Yes| G["Abort Request"]
+    F -->|No| H["Return Response"]
+    G --> I{"Stop<br/>Signal?"]
+    H --> I
+    I -->|Graceful| J["Wait for Active<br/>Requests"]
+    I -->|Force| K["Immediate Close"]
+    J --> L["Server Stopped"]
+    K --> L
+```
 
 ```ts
 const server = Bun.serve({
@@ -3114,6 +3256,23 @@ Bun supports standard Web APIs: https://bun.com/docs/runtime/web-apis
 
 ## 29. Bun as a Package Manager
 
+```mermaid
+flowchart TD
+    A["Package Manager Command"] --> B{"Command Type?"}
+    B -->|bun install| C["Read package.json"]
+    B -->|bun add pkg| D["Download Package"]
+    B -->|bun update| E["Check Latest Versions"]
+    B -->|bun remove pkg| F["Delete Package"]
+    C --> G["Install All Dependencies"]
+    D --> H["Add to package.json<br/>Create/Update lock file"]
+    E --> I["Update Dependencies<br/>Within Version Ranges"]
+    F --> J["Remove from Dependencies<br/>Update lock file"]
+    G --> K["Complete"]
+    H --> K
+    I --> K
+    J --> K
+```
+
 ```sh
 bun init                     # initialize a new Bun project (creates package.json, bun.lockb)
 bun install                  # install all deps from package.json
@@ -3387,6 +3546,23 @@ Common templates you can use:
 
 ## 31. Testing with Bun
 
+```mermaid
+flowchart TD
+    A["bun test"] --> B["Discover Test Files"]
+    B --> C["Load Tests"]
+    C --> D["Execute Test Suite"]
+    D --> E{"All Tests<br/>Pass?"}
+    E -->|Passed| F["✓ Test Name"]
+    E -->|Failed| G["✗ Test Name<br/>Expected vs Received"]
+    F --> H["Increment Pass Count"]
+    G --> I["Increment Fail Count"]
+    H --> J{"More Tests?"}
+    I --> J
+    J -->|Yes| D
+    J -->|No| K["Generate Report"]
+    K --> L["Display Summary"]
+```
+
 ```ts
 // test/example.test.ts
 
@@ -3544,6 +3720,20 @@ bun test
 ---
 
 ## 32. Bun as a Bundler
+
+```mermaid
+flowchart LR
+    A["Source Files"] --> B["Parse TypeScript"]
+    B --> C["Resolve Imports"]
+    C --> D["Combine Files"]
+    D --> E{"Minify?"}
+    E -->|Yes| F["Remove Whitespace<br/>Shorten Names"]
+    E -->|No| G["Keep Readable"]
+    F --> H["Output to outdir"]
+    G --> H
+    H --> I["Compiled JavaScript"]
+    I --> J["Ready for Deployment"]
+```
 
 ---
 
@@ -3913,3 +4103,65 @@ NODE_ENV=production
 - **Official Website**: https://bun.sh
 - **Documentation**: https://bun.sh/docs
 - **GitHub**: https://github.com/oven-sh/bun
+
+## 38. Complete Bun Roadmap
+
+```mermaid
+flowchart TD
+    A["Bun JavaScript Runtime"] --> B["Introduction to Bun"]
+    B --> C["Web Development Concepts Refresher"]
+    C --> D["Course Overview"]
+    
+    D --> E["What is Bun? - Detailed Explanation"]
+    E --> F["Bun Features Breakdown"]
+    F --> G["Installation"]
+    
+    G --> H["Quick Start Project Setup"]
+    H --> I["Bun as a Runtime"]
+    I --> J["File Imports"]
+    
+    J --> K["Environment Variables"]
+    K --> L["File I/O Operations"]
+    L --> M["Working with Directories"]
+    
+    M --> N["import.meta Object"]
+    N --> O["Hashing & Encryption"]
+    O --> P["Bun Utilities"]
+    
+    P --> Q["HTTP Server with Bun.serve"]
+    Q --> R["Complete CRUD API Example"]
+    R --> S["Query Parameters"]
+    
+    S --> T["Rendering HTML Pages"]
+    T --> U["URL Redirection"]
+    U --> V["Global Error Handling"]
+    
+    V --> W["HTTPS/TLS Configuration"]
+    W --> X["Server Utilities"]
+    X --> Y["Console API"]
+    
+    Y --> Z["Color API"]
+    Z --> AA["Shell Scripting with Bun"]
+    AA --> AB["Web APIs"]
+    
+    AB --> AC["Bun as a Package Manager"]
+    AC --> AD["Bun Create Command"]
+    AD --> AE["Testing with Bun"]
+    
+    AE --> AF["Bun as a Bundler"]
+    AF --> AG["Important Notes & Best Practices"]
+    AG --> AH["Common Patterns & Examples"]
+    
+    AH --> AI["Comparison: Node.js vs Bun"]
+    AI --> AJ["Conclusion"]
+    
+    style A fill:#1e1e1e,color:#e0e0e0,stroke:#666
+    style B fill:#2d2d2d,color:#e0e0e0,stroke:#555
+    style C fill:#2d2d2d,color:#e0e0e0,stroke:#555
+    style D fill:#2d2d2d,color:#e0e0e0,stroke:#555
+    style E fill:#2d2d2d,color:#e0e0e0,stroke:#555
+    style Q fill:#3a3a3a,color:#ffeb3b,stroke:#444
+    style AE fill:#3a3a3a,color:#ffeb3b,stroke:#444
+    style AF fill:#3a3a3a,color:#ffeb3b,stroke:#444
+    style AJ fill:#1e1e1e,color:#e0e0e0,stroke:#666
+```
