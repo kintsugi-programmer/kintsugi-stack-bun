@@ -1,19 +1,9 @@
----
-title: Bun JavaScript Runtime
-description: Comprehensive documentation on Bun as a JavaScript/TypeScript runtime, covering its architecture, comparison with Node.js, built-in features, and setup instructions.
-keywords:
-  - Bun runtime
-  - JavaScript runtime
-  - TypeScript support
-  - Node.js alternative
-  - Zig language
-  - Package manager
-  - Bundler
-  - Runtime comparison
-  - Server development
----
-
 # Bun
+
+- Repository: [github.com/kintsugi-programmer/kintsugi-stack-bun](https://github.com/kintsugi-programmer/kintsugi-stack-bun)
+- Documentation: [codingismeditation.github.io/exploration/bun](https://codingismeditation.github.io/exploration/bun/index.html)
+
+> Complete Bun JavaScript & TypeScript Runtime Documentation
 
 ![alt text](images/image.webp)
 
@@ -32,9 +22,8 @@ keywords:
 
 ## 1. Introduction to Bun
 
-> Complete Bun JavaScript & TypeScript Runtime Documentation
-
 ### 1.1. What is Bun?
+
 - **Bun** is a fast JavaScript runtime (alternative to Node.js)
 - Introduced approximately 2-3 years ago
 - Written in **Zig language** (not C++ like Node.js)
@@ -43,6 +32,7 @@ keywords:
 ### 1.2. Why Learn Bun?
 
 #### 1.2.1. Key Reasons:
+
 1. **Market Relevance**: Projects may require Bun expertise
 2. **Performance**: Significantly faster than Node.js
 3. **Built-in Features**: Reduces external dependencies
@@ -58,30 +48,35 @@ keywords:
 Before diving into Bun, let's understand the foundational concepts:
 
 ### 2.1. What is JavaScript?
+
 - **JavaScript** is a programming language that runs on computers
 - Originally created for web browsers (to make websites interactive)
 - Now can run on servers too (backend) with tools like Node.js and Bun
 - Used for: making interactive features, handling data, building entire applications
 
 ### 2.2. What is a Runtime?
+
 - **Runtime** = An environment where code runs
 - Think of it like an operating system for your code
 - **Node.js** was the first JavaScript runtime for servers (created ~2009)
 - **Bun** is a newer, faster JavaScript runtime alternative to Node.js
 
 ### 2.3. What is a Server?
+
 - **Server** = A computer that listens for requests and sends responses
 - When you visit a website, your browser (client) sends a request to a server
 - The server processes the request and sends back data/HTML
 - Example: When you visit Google.com, your request goes to Google's servers
 
 ### 2.4. What is an API?
+
 - **API** = Application Programming Interface (a way for programs to talk to each other)
 - **HTTP API** = A web server that responds to requests with data (usually JSON)
 - Example: A weather API that returns current temperature
 - Used for: Getting data from servers, sending data to servers, connecting apps
 
 ### 2.5. What is HTTP?
+
 - **HTTP** = HyperText Transfer Protocol (the language of the web)
 - A standardized way for clients and servers to communicate
 - **Request** = Client asking server for something
@@ -89,21 +84,10 @@ Before diving into Bun, let's understand the foundational concepts:
 - **Status codes**: 200 (success), 404 (not found), 500 (server error)
 
 ### 2.6. Client vs Server
+
 - **Client** = Your browser or app that requests data
 - **Server** = Computer that stores data and responds to requests
 - **Flow**: Client → Request → Server → Processing → Response → Client receives data
-
-```mermaid
-sequenceDiagram
-    actor Client
-    participant Server
-    Client->>Server: HTTP Request
-    activate Server
-    Server->>Server: Process Request
-    Server-->>Client: HTTP Response
-    deactivate Server
-    Client->>Client: Render/Display
-```
 
 ---
 
@@ -146,6 +130,7 @@ sequenceDiagram
 ### 4.1. Bun vs Node.js
 
 #### 4.1.1. Similarities:
+
 - Both are JavaScript runtimes
 - Both allow running JavaScript on the backend
 - Both allow you to write server code (not just browser code)
@@ -173,6 +158,7 @@ sequenceDiagram
 **3. All-in-One Toolkit**
 
 Bun provides built-in solutions for:
+
 - **Fast Package Manager**: No need for npm installation
 - **Fast Bundler**: Replaces Parcel, Webpack, esbuild. Compiles Code Faster. No need to install external Bundler.
 - **Test Runner**: Replaces Jest, Built-in
@@ -183,6 +169,7 @@ Bun provides built-in solutions for:
 ## 5. Bun Features Breakdown
 
 ### 5.1. Fast JavaScript Runtime
+
 ```bash
 # Simple runtime like Node.js but faster
 bun index.ts
@@ -195,24 +182,28 @@ bun index.ts
 - Faster than Node.js at starting up and running code
 
 ### 5.2. Fast JavaScript Package Manager
+
 - **Package Manager** = Tool that downloads and installs code libraries other people wrote
 - Built-in package manager (no npm needed)
 - Extremely fast package installation
 - Compatible with npm registry (same libraries as Node.js)
 
 ### 5.3. Fast JavaScript Bundler
+
 - **Bundler** = Tool that combines multiple files into one optimized file
 - Minifies code for production (makes files smaller)
 - Replaces: Parcel, Webpack, esbuild
 - Why: Faster websites (smaller files = faster download)
 
 ### 5.4. Fast JavaScript Test Runner
+
 - **Testing** = Writing code to check if your other code works correctly
 - Built-in testing (no Jest needed)
 - Zero external dependencies for testing
 - Example: "If I add 2+2, do I get 4?" tests
 
 ### 5.5. Node-Compatible Runtime
+
 - Bun is Fast JS Node-compatible runtime
 - Can run Node.js code with minimal changes
 - Supports Node.js libraries
@@ -223,6 +214,7 @@ bun index.ts
 ## 6. Companies Using Bun
 
 Notable companies using Bun in production:
+
 - **X (Twitter)**
 - **Typi**
 - **Midjourney** (AI image/video generation)
@@ -233,16 +225,19 @@ Notable companies using Bun in production:
 ## 7. Installation
 
 ### 7.1. Windows (PowerShell)
+
 ```powershell
 powershell -c "irm bun.sh/install.ps1|iex"
 ```
 
 ### 7.2. Linux & MacOS
+
 ```bash
 curl -fsSL https://bun.sh/install | bash
 ```
 
 ### 7.3. Using npm (The last npm command you'll ever need)
+
 ```bash
 npm install -g bun
 ```
@@ -252,6 +247,7 @@ npm install -g bun
 - bun also supports npm packages
 
 ### 7.4. Verify Installation
+
 ```bash
 bun --version
 # Output: 1.2.5 (or current version)
@@ -368,7 +364,7 @@ Production - serve a full-stack production build
     bun start
 
 Happy bunning! 🐇
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_2_$ 
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_2_$
 ```
 
 #### 8.1.3. Select a project template: Library
@@ -377,8 +373,8 @@ bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_2_$
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_3_$ bun init
 
 ✓ Select a project template: Library
-package name (8_1_3_): 
-entry point (index.ts): 
+package name (8_1_3_):
+entry point (index.ts):
 
  + .gitignore
  + index.ts
@@ -396,10 +392,11 @@ bun install v1.3.6 (d530ed99)
 
 5 packages installed [13.00ms]
 
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_3_$ 
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/8_1_3_$
 ```
 
 ### 8.2. Project Structure
+
 ```
 project/
 ├── index.ts
@@ -413,6 +410,7 @@ project/
 ## 9. Bun as a Runtime
 
 ### 9.1. What is a Runtime?
+
 - **Runtime** = Environment where your code actually runs
 - Think of it like a translator between your code and the computer
 - Your code + Runtime = Working application
@@ -421,6 +419,7 @@ project/
 ### 9.2. Running Files
 
 #### 9.2.1. Basic Execution
+
 ```bash
 # Method 1
 bun index.ts
@@ -435,16 +434,17 @@ bun run index.ts
 - Bun reads the file, translates it, and runs it
 - Output appears in your terminal
 - This is how servers start!
-  
+
 ```bash
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ bun index.ts
 Hello via Bun!
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ bun run index.ts
 Hello via Bun!
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ 
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$
 ```
 
 #### 9.2.2. Watch Mode (Auto-reload on save)
+
 ```bash
 # Without "run"
 bun --watch index.ts
@@ -476,14 +476,16 @@ console.log("Hello via Bun");
 console.log("Hello!");
 console.log("I am Kintsugi-Programmer.");
 ```
+
 ```bash
 Hello!
 I am Kintsugi-Programmer.
 ^C
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$ 
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$
 ```
 
 ### 9.3. Package.json Scripts
+
 ```json
 {
   "name": "9_",
@@ -502,13 +504,12 @@ bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9$
   }
 }
 ```
+
 ```bash
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9_$ bun dev
 $ bun --watch index.ts
 Hello!
 I am Kintsugi-Programmer.
-
-
 
 ^C
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9_$ bun start
@@ -606,10 +607,8 @@ package.json scripts (2 found):
   $ bun run start
     bun index.ts
 
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9_$ 
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/9_$
 ```
-
----
 
 **Setup scripts:**
 
@@ -684,6 +683,7 @@ console.log(user);
 
 console.log(makeName("Kintsugi","Programmer"));
 ```
+
 ```bash
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/10_$ bun index.ts
 Hello via Bun!
@@ -694,10 +694,8 @@ target: coding_is_meditation
   age: 25,
 }
 Kintsugi Programmer
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/10_$ 
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/10_$
 ```
-
----
 
 **Understanding File Imports in Bun:**
 
@@ -791,18 +789,6 @@ console.log(makeName("Kintsugi", "Programmer"));
 
 ## 11. Environment Variables
 
-```mermaid
-flowchart TD
-    A["Application Startup"] --> B{"Which .env to Load?"}
-    B -->|If .env.local exists| C["Load .env.local"]
-    B -->|Else if .env.development| D["Load .env.development"]
-    B -->|Else .env.production| E["Load .env.production"]
-    C --> F["Process Config"]
-    D --> F
-    E --> F
-    F --> G["Access via process.env<br/>Bun.env<br/>import.meta.env"]
-    G --> H["Runtime Ready"]
-```
 ```ts
 // index.ts
 
@@ -824,12 +810,12 @@ flowchart TD
 
 // no need to import some lib for .env use
 
-// Priority of import 
+// Priority of import
 // 1. .env.local
 // 2. .env.development
 // 3. .env.production
 
-// way 2 
+// way 2
 const port_way_2 = Bun.env.PORT;
 
 // way 3
@@ -859,11 +845,12 @@ console.log(port_way_3);
 
 // when its get import , it will used as empty
 
-// .env.empty 
+// .env.empty
 // EMPTY
 
 // when its get import , it will used as undefined
 ```
+
 ```json
 {
   "name": "11_",
@@ -882,6 +869,7 @@ console.log(port_way_3);
   }
 }
 ```
+
 ```bash
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/11_$ bun index.ts
 2000
@@ -899,8 +887,6 @@ $ bun --env-file=.env.production index.ts
 3000
 3000
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/11_$ bun --env-file=.env.staging index.ts
-
-
 
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/11_$ bun --env-file=.env.empty index.ts
 undefined
@@ -930,6 +916,7 @@ bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/11_$ # see, it's got override
 **No external packages needed** (no dotenv required!)
 
 **Create `.env.development`:**
+
 ```env
 PORT=6000
 DATABASE_URL=mongodb://localhost:27017
@@ -938,18 +925,21 @@ DATABASE_URL=mongodb://localhost:27017
 ### 11.3. Three Ways to Access Environment Variables
 
 #### 11.3.1. Method 1: process.env
+
 ```typescript
 const port = process.env.PORT;
 console.log(port); // 6000
 ```
 
 #### 11.3.2. Method 2: Bun.env
+
 ```typescript
 const port = Bun.env.PORT;
 console.log(port); // 6000
 ```
 
 #### 11.3.3. Method 3: import.meta.env
+
 ```typescript
 const port = import.meta.env.PORT;
 console.log(port); // 6000
@@ -958,6 +948,7 @@ console.log(port); // 6000
 ### 11.4. Type Safety for Environment Variables
 
 **Create `env.d.ts`:**
+
 ```typescript
 declare module "bun" {
   interface Env {
@@ -968,9 +959,11 @@ declare module "bun" {
 ```
 
 Now you get autocomplete and type checking:
+
 ```typescript
 process.env.PORT // ✓ Autocomplete works!
 ```
+
 - without `env.d.ts`
   - ![alt text](images/image-2.webp)
     - no autocomplete/suggestions
@@ -998,10 +991,12 @@ Bun automatically loads these files (in order of priority):
 ```
 
 ### 11.6. Using NODE_ENV
+
 ```bash
 NODE_ENV=development bun index.ts
 NODE_ENV=production bun index.ts
 ```
+
 ```bash
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/11_$ NODE_ENV=development bun index.ts #another way but don't use as it's get overriden by bun
 2000
@@ -1051,7 +1046,7 @@ console.log(bytes_written_from_data);
 // 2
 
 // bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ cat  message_1.txt
-// Si Vis Pacem Para Bellum !!!bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ 
+// Si Vis Pacem Para Bellum !!!bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$
 
 const old_file = Bun.file("./message_1.txt");
 const new_file = Bun.file("./copied_message_1.txt");
@@ -1061,8 +1056,9 @@ await Bun.write(new_file,old_file); // Doesn't load entire file into memory & Pr
 // README.md  copied_message_1.txt  message_1.txt  package.json   user.json
 // bun.lock   index.ts              node_modules   tsconfig.json
 // bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ cat  copied_message_1.txt
-// Si Vis Pacem Para Bellum !!!bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ 
+// Si Vis Pacem Para Bellum !!!bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$
 ```
+
 ```bash
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ bun index.ts
 FileRef ("./user.json") {
@@ -1077,13 +1073,11 @@ bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ ls
 README.md  copied_message_1.txt  message_1.txt  package.json   user.json
 bun.lock   index.ts              node_modules   tsconfig.json
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ cat  message_1.txt
-Si Vis Pacem Para Bellum !!! 
+Si Vis Pacem Para Bellum !!!
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ cat  copied_message_1.txt
 Si Vis Pacem Para Bellum !!!
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ 
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$
 ```
-
----
 
 ### 12.1. What is File I/O?
 
@@ -1091,26 +1085,6 @@ bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$
 - **File I/O** = Reading data from files or saving data to files
 - Needed for: storing data, loading configuration, saving user uploads, logs
 - **Async** = Non-blocking (code continues while file is being read/written)
-
-```mermaid
-flowchart TD
-    A["File Operation Request"] --> B{"Operation Type?"}
-    B -->|Read File| C["Check if Exists"]
-    B -->|Write File| D["Create/Overwrite"]
-    B -->|Copy File| E["Source Ref"]
-    C --> C1{"File Found?"}
-    C1 -->|Yes| F["Load Content"]
-    C1 -->|No| G["Return false"]
-    F --> H["Return File Data"]
-    D --> I["Write to Disk"]
-    E --> J["Reference without<br/>Loading to Memory"]
-    I --> K["Return Bytes Written"]
-    J --> L["Copy Complete"]
-    H --> M["Operation Complete"]
-    G --> M
-    K --> M
-    L --> M
-```
 
 ### 12.2. Reading Files with Bun.file
 
@@ -1128,12 +1102,13 @@ flowchart TD
 const file = Bun.file("./user.json");
 console.log(file);
 ```
+
 ```bash
 bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ bun index.ts
 FileRef ("./user.json") {
   type: "application/json;charset=utf-8"
 }
-bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$ 
+bali-king@war-machine:~/BaliGit/kintsugi-stack-bun/12_$
 ```
 
 ### 12.3. File Properties
@@ -1182,7 +1157,6 @@ console.log(file.name); // "user.json"
 | SVG  | `image/svg+xml`          |
 | MP4  | `video/mp4`              |
 | PDF  | `application/pdf`        |
-
 
 ### 12.4. Check File Existence
 
@@ -1269,8 +1243,6 @@ fs.readdir(import.meta.dir,(err,files)=>{
 //   "bun.lock", "README.md"
 // ]
 ```
-
----
 
 ### 13.1. Create Directory
 
@@ -1461,7 +1433,7 @@ console.log(import.meta.filename);// for Node.js Compatibility // no need to use
 console.log(import.meta.url);
 // file:///workspaces/kintsugi-stack-bun/14_/index.ts
 
-console.log(import.meta.resolve("typescript")); // it gets module's path without importing it 
+console.log(import.meta.resolve("typescript")); // it gets module's path without importing it
 // file:///workspaces/kintsugi-stack-bun/14_/node_modules/typescript/lib/typescript.js
 
 // Bun also supports Node.js Conventions
@@ -1471,21 +1443,22 @@ console.log(__filename);
 // /workspaces/kintsugi-stack-bun/14_/index.ts
 ```
 
----
-
 ### 14.1. Available Properties
 
 #### 14.1.1. import.meta.dir
+
 ```typescript
 console.log(import.meta.dir);
 // Output: /path/to/project/bun
 ```
+
 **Purpose:** Returns the absolute directory path of the current file
 
 - **Use case:** Base path for relative file operations
 - **Example:** Loading files relative to your script location
 
 #### 14.1.2. import.meta.dirname (Alias)
+
 ```typescript
 console.log(import.meta.dirname);
 // Same as import.meta.dir
@@ -1497,16 +1470,19 @@ console.log(import.meta.dirname);
 - **Preference:** Use `.dir` for consistency
 
 #### 14.1.3. import.meta.env
+
 ```typescript
 console.log(import.meta.env);
 // Output: All environment variables
 ```
+
 **Purpose:** Access all environment variables as an object
 
 - **Advantage:** Type-safe access to environment configuration
 - **Use case:** Loading entire configuration at once
 
 #### 14.1.4. import.meta.file
+
 ```typescript
 console.log(import.meta.file);
 // Output: index.ts
@@ -1518,6 +1494,7 @@ console.log(import.meta.file);
 - **Example:** Dynamic debugging or error reporting
 
 #### 14.1.5. import.meta.path
+
 ```typescript
 console.log(import.meta.path);
 // Output: /path/to/project/bun/index.ts
@@ -1529,6 +1506,7 @@ console.log(import.meta.path);
 - **Difference from `.url`:** Returns a normal path string, not a URL
 
 #### 14.1.6. import.meta.filename (Alias)
+
 ```typescript
 console.log(import.meta.filename);
 // Same as import.meta.path
@@ -1540,6 +1518,7 @@ console.log(import.meta.filename);
 - **Preference:** Use `.path` for consistency
 
 #### 14.1.7. import.meta.url
+
 ```typescript
 console.log(import.meta.url);
 // Output: file:///path/to/project/bun/index.ts
@@ -1552,6 +1531,7 @@ console.log(import.meta.url);
 - **Useful for:** Creating File URLs for APIs that require them
 
 #### 14.1.8. import.meta.resolve()
+
 ```typescript
 const path = import.meta.resolve("typescript");
 console.log(path);
@@ -1584,9 +1564,9 @@ const pass = "pass123";
 
 const hashed_pass = await Bun.password.hash(
     pass,
-    {   
+    {
         algorithm: "bcrypt",
-        cost:4 // Iterations (optional) // 4 to 31 
+        cost:4 // Iterations (optional) // 4 to 31
         // rehashing the output
         // way of salting
         // more cost, more time !!!
@@ -1634,7 +1614,7 @@ const hashedPassword = await Bun.password.hash(
 );
 // Save hashedPassword to database // not direct raw password to db
 
-// Login 
+// Login
 const loginPassword = "pass123";
 const isValidPassword = await Bun.password.verify(loginPassword,hashedPassword);
 
@@ -1652,8 +1632,6 @@ const hashed_pass_way_2= await Bun.password.hash(
 );console.log(hashed_pass_way_2);
 // $argon2d$v=19$m=65536,t=2,p=1$mU25/aPwbP42zPRfTzlmQA4LHyy8Wj2RBCMcF3cV6LM$oVy4A+6bPtfJ9omgElZHaWnJtX2ny9QAK8yWMrPXIzk
 ```
-
----
 
 ### 15.1. What is Password Hashing?
 
@@ -1724,24 +1702,6 @@ if (isValidPassword) {
 }
 ```
 
-```mermaid
-sequenceDiagram
-    actor User
-    participant App
-    participant Database
-    User->>App: Register with password
-    App->>App: Hash password
-    App->>Database: Save user + hashed password
-    User->>App: Login with password
-    App->>Database: Fetch stored hash
-    App->>App: Verify input vs stored hash
-    alt Passwords match
-        App-->>User: Login successful
-    else Passwords don't match
-        App-->>User: Invalid credentials
-    end
-```
-
 ### 15.4. Argon2 Algorithm
 
 ```typescript
@@ -1773,7 +1733,7 @@ await Bun.sleep(5000); // 5sec pause execution // No need to construct wrapper w
 console.log(crypto.randomUUID());// Generate a cryptographically secure random UUID // RFC 4122 Version 4 UUID (v4) // xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 // b1f9b4dd-08f0-4f86-ad05-0d2ee998e430
  // Cryptographically secure (not just Math.random())
- 
+
 console.log(Bun.nanoseconds());
 // 5682172144
 
@@ -1789,14 +1749,13 @@ console.log(Bun.deepEquals(obj1,obj3));
 // false
 ```
 
----
-
 ### 16.1. Bun.version
 
 ```typescript
 console.log(Bun.version);
 // Output: "1.2.5"
 ```
+
 **Purpose:** Returns the current Bun runtime version
 
 - **Use case:** Version checking for compatibility
@@ -1809,6 +1768,7 @@ console.log(Bun.version);
 console.log(Bun.env);
 // Output: All environment variables
 ```
+
 **Purpose:** Access all environment variables as an object
 
 - **Difference from process.env:** Slightly optimized for Bun
@@ -1871,6 +1831,7 @@ const ns = Bun.nanoseconds();
 console.log(ns);
 // Returns nanoseconds since process started
 ```
+
 **Purpose:** Get high-precision elapsed time since process start
 
 - **Precision:** Nanoseconds (billionths of a second)
@@ -1887,6 +1848,7 @@ const obj2 = { name: "kintsugi-programmer", age: 18 };
 const isEqual = Bun.deepEquals(obj1, obj2);
 console.log(isEqual); // true
 ```
+
 **Purpose:** Compare two values for deep equality
 
 - **Recursion:** Checks nested objects and arrays
@@ -1898,6 +1860,7 @@ console.log(isEqual); // true
 ---
 
 ## 17. HTTP Server with Bun.serve
+
 ```ts
 const port = Bun.env.PORT || 8000 ;
 const server = Bun.serve(
@@ -1912,6 +1875,7 @@ const server = Bun.serve(
 console.info(`Server is running on port ${server.port}`);
 // Server is running on port 8000
 ```
+
 ```ts
 const port = Bun.env.PORT || 8000 ;
 const server = Bun.serve ({
@@ -1930,13 +1894,14 @@ const server = Bun.serve ({
 
 console.info(`Server is running on port ${server.port}`);
 ```
+
 ```ts
 const port = Bun.env.PORT || 8000 ;
 const server = Bun.serve({
     port:port,
     fetch(req){
         const url = new URL(req.url);
-        
+
         // Dynamic Routes
         const pathPaths = url.pathname.split('/');
         if (
@@ -1955,6 +1920,7 @@ const server = Bun.serve({
 
 console.info(`Server is running on port ${server.port}`);
 ```
+
 ```ts
 const port = Bun.env.PORT || 8000 ;
 const server = Bun.serve({
@@ -1970,6 +1936,7 @@ const server = Bun.serve({
 
 console.info(`Server is running on port ${server.port}`);
 ```
+
 ```ts
 const port = Bun.env.PORT || 8000 ;
 const server = Bun.serve({
@@ -1986,8 +1953,6 @@ const server = Bun.serve({
 
 console.info(`Server is running on port ${server.port}`);
 ```
-
----
 
 ### 17.1. What is an HTTP Server?
 
@@ -2031,23 +1996,14 @@ Bun.serve({
   port: 8000,
   fetch(req) {
     const url = new URL(req.url);
-    
+
     if (url.pathname === "/api/health") {
       return new Response("Status: OK");
     }
-    
+
     return new Response("Route not found", { status: 404 });
   }
 });
-```
-
-```mermaid
-flowchart TD
-    A["Incoming Request"] --> B{"Is pathname<br/>/api/health?"}
-    B -->|Yes| C["Return 200: OK"]
-    B -->|No| D["Return 404: Not Found"]
-    C --> E["Response Sent"]
-    D --> E
 ```
 
 ![alt text](images/image-3.webp)
@@ -2071,16 +2027,17 @@ Bun.serve({
   fetch(req) {
     const url = new URL(req.url);
     const pathParts = url.pathname.split('/');
-    
+
     if (pathParts[1] === "api" && pathParts[2]) {
       const id = pathParts[2];
       return new Response(`ID is: ${id}`);
     }
-    
+
     return new Response("Not found", { status: 404 });
   }
 });
 ```
+
 ![alt text](images/image-5.webp)
 
 **Key Points:**
@@ -2100,18 +2057,19 @@ Bun.serve({
   port: 8000,
   routes: {
     "/api/health": () => new Response("Status: OK"),
-    
+
     "/api/:id": (req) => {
       return new Response(`ID is: ${req.params.id}`);
     }
   },
-  
+
   // Catch-all for unmatched routes
   fetch() {
     return new Response("Route not found", { status: 404 });
   }
 });
 ```
+
 ```ts
 const port = Bun.env.PORT || 8000 ;
 const server = Bun.serve({
@@ -2145,32 +2103,6 @@ console.info(`Server is running on port ${server.port}`);
 ---
 
 ## 18. Complete CRUD API Example
-
-```mermaid
-flowchart LR
-    A["Client Request"] --> B{"HTTP Method?"}
-    B -->|GET /api/posts| C["Fetch All Posts"]
-    B -->|POST /api/posts| D["Create New Post"]
-    B -->|PUT /api/posts/:id| E["Update Post"]
-    B -->|DELETE /api/posts/:id| F["Delete Post"]
-    C --> G["Return JSON Array"]
-    D --> H["Generate UUID<br/>Add to Array"]
-    E --> I{"Post Exists?"}
-    F --> J{"Post Exists?"}
-    I -->|Yes| K["Update Properties"]
-    I -->|No| L["Return 404"]
-    J -->|Yes| M["Remove from Array"]
-    J -->|No| N["Return 404"]
-    H --> O["Return Created"]
-    K --> P["Return Updated"]
-    M --> Q["Return Deleted"]
-    G --> R["Response Sent"]
-    O --> R
-    P --> R
-    Q --> R
-    L --> R
-    N --> R
-```
 
 ```ts
 // Setup
@@ -2232,9 +2164,8 @@ const server = Bun.serve({
 
 ```
 
----
-
 ### 18.1. What is CRUD?
+
 - **CRUD** = Create, Read, Update, Delete (four basic operations on data)
 - **Create** = Add new data (POST request)
 - **Read** = Get existing data (GET request)
@@ -2243,6 +2174,7 @@ const server = Bun.serve({
 - Used in: databases, user management, todo apps, social media
 
 ### 18.2. What are HTTP Methods?
+
 - **GET** = "Give me data" (read-only, safe)
 - **POST** = "Here's new data" (creates something)
 - **PUT** = "Update this data" (modifies something)
@@ -2285,12 +2217,12 @@ let posts: TPost[] = [];
 "/api/posts": {
   POST: async (req) => {
     const body = await req.json() as Omit<TPost, "id">;
-    
+
     posts.push({
       id: crypto.randomUUID(),
       title: body.title
     });
-    
+
     return new Response("Created");
   }
 }
@@ -2314,13 +2246,13 @@ let posts: TPost[] = [];
   PUT: async (req) => {
     const id = req.params.id as string;
     const body = await req.json() as Omit<TPost, "id">;
-    
+
     const postIndex = posts.findIndex(post => post.id === id);
-    
+
     if (postIndex === -1) {
       return new Response("Post not found", { status: 404 });
     }
-    
+
     posts[postIndex]!.title = body.title;
     return new Response("Updated");
   }
@@ -2347,11 +2279,11 @@ let posts: TPost[] = [];
   DELETE: (req) => {
     const id = req.params.id as string;
     const postIndex = posts.findIndex(post => post.id === id);
-    
+
     if (postIndex === -1) {
       return new Response("Post not found", { status: 404 });
     }
-    
+
     posts.splice(postIndex, 1);
     return new Response("Deleted");
   }
@@ -2383,7 +2315,7 @@ const server = Bun.serve({
   routes: {
     "/api/posts": {
       GET: () => Response.json(posts),
-      
+
       POST: async (req) => {
         const body = await req.json() as Omit<TPost, "id">;
         posts.push({
@@ -2393,29 +2325,29 @@ const server = Bun.serve({
         return new Response("Created");
       }
     },
-    
+
     "/api/posts/:id": {
       PUT: async (req) => {
         const id = req.params.id as string;
         const body = await req.json() as Omit<TPost, "id">;
         const postIndex = posts.findIndex(p => p.id === id);
-        
+
         if (postIndex === -1) {
           return new Response("Not found", { status: 404 });
         }
-        
+
         posts[postIndex].title = body.title;
         return new Response("Updated");
       },
-      
+
       DELETE: (req) => {
         const id = req.params.id as string;
         const postIndex = posts.findIndex(p => p.id === id);
-        
+
         if (postIndex === -1) {
           return new Response("Not found", { status: 404 });
         }
-        
+
         posts.splice(postIndex, 1);
         return new Response("Deleted");
       }
@@ -2429,20 +2361,6 @@ console.info(`Server running on port ${server.port}`);
 ---
 
 ## 19. Query Parameters
-
-```mermaid
-flowchart LR
-    A["Request URL"] --> B["Parse Query String"]
-    B --> C["Extract Parameters"]
-    C --> D{"Method?"}
-    D -->|get by key| E["searchParams.get"]
-    D -->|get all as object| F["Object.fromEntries"]
-    E --> G["Returns string<br/>or null"]
-    F --> H["Returns Object<br/>of all params"]
-    G --> I["Application Logic"]
-    H --> I
-    I --> J["Process Request<br/>with Filters"]
-```
 
 ```ts
 // Setup
@@ -2459,19 +2377,18 @@ const server = Bun.serve({
             // GET All Posts
             // GET: () => Response.json(posts), // Old
             GET: (req) => {
-                  const parsedUrl = new URL(req.url);  
+                  const parsedUrl = new URL(req.url);
     // Method 1: Get individual parameters
     const page = parsedUrl.searchParams.get("page");
     const limit = parsedUrl.searchParams.get("limit");
     console.log(page, limit); // "1" "10"
-    
+
     // Method 2: Get all parameters as object
     const params = Object.fromEntries(parsedUrl.searchParams.entries());
     console.log(params) // { page: "1", limit: "10" }
 
                 return Response.json(posts);
             },
-
 
             // POST Create Post
             POST: async (req) => {
@@ -2518,8 +2435,6 @@ const server = Bun.serve({
 
 ```
 
----
-
 ### 19.1. What are Query Parameters?
 
 - **Query Parameters** = Additional data sent in the URL (after ?)
@@ -2536,22 +2451,23 @@ const server = Bun.serve({
 "/api/posts": {
   GET: (req) => {
     const parsedUrl = new URL(req.url);
-    
+
     // Method 1: Get individual parameters
     const page = parsedUrl.searchParams.get("page");
     const limit = parsedUrl.searchParams.get("limit");
     console.log(page, limit); // "1" "10"
-    
+
     // Method 2: Get all parameters as object
     const params = Object.fromEntries(parsedUrl.searchParams.entries());
     console.log(params); // { page: "1", limit: "10" }
-    
+
     return Response.json(posts);
   }
 }
 ```
 
 **Test with:**
+
 ```
 GET http://localhost:8000/api/posts?page=1&limit=10
 ```
@@ -2571,6 +2487,7 @@ GET http://localhost:8000/api/posts?page=1&limit=10
 ---
 
 ## 20. Rendering HTML Pages
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -2581,6 +2498,7 @@ GET http://localhost:8000/api/posts?page=1&limit=10
 </body>
 </html>
 ```
+
 ```ts
 import homePage from "./home.html";
 Bun.serve({
@@ -2589,8 +2507,6 @@ Bun.serve({
 }
 )
 ```
-
----
 
 ### 20.1. What is HTML?
 
@@ -2603,6 +2519,7 @@ Bun.serve({
 ### 20.2. Serving HTML Files
 
 **Create `home.html`:**
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -2613,6 +2530,7 @@ Bun.serve({
 ```
 
 **Import and serve:**
+
 ```typescript
 import homePage from "./home.html";
 
@@ -2647,14 +2565,15 @@ Bun.serve({
 import homePage from "./home.html";
 Bun.serve({
     port:8000,
-    routes:{ 
+    routes:{
         "/home": homePage,
         "/ge": Response.redirect("https://google.com")
-        
+
      } // automatic serialize
 }
 )
 ```
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -2665,8 +2584,6 @@ Bun.serve({
 </body>
 </html>
 ```
-
----
 
 ```typescript
 "/go-to-google": () => {
@@ -2689,30 +2606,17 @@ Bun.serve({
 
 ## 22. Global Error Handling
 
-```mermaid
-flowchart TD
-    A["Request Arrives"] --> B["Route Handler Executes"]
-    B --> C{"Error Thrown?"}
-    C -->|No| D["Return Response"]
-    C -->|Yes| E["Error Bubbles Up"]
-    E --> F["Global error Handler<br/>Catches Exception"]
-    F --> G["Log Error Details"]
-    G --> H["Return 500 Response<br/>to Client"]
-    D --> I["Response Sent"]
-    H --> I
-```
-
 ```ts
 import homePage from "./home.html";
 Bun.serve({
     port:8000,
-    routes:{ 
+    routes:{
         "/home": homePage,
         "/ge": Response.redirect("https://google.com"),
         "/error": () => {
             throw new Error("This is hypothetical Test Error");
         }
-        
+
      }, // automatic serialize
 
      error(error){
@@ -2722,6 +2626,7 @@ Bun.serve({
 }
 )
 ```
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -2733,8 +2638,6 @@ Bun.serve({
 </html>
 ```
 
----
-
 ```typescript
 Bun.serve({
   port: 8000,
@@ -2743,7 +2646,7 @@ Bun.serve({
       throw new Error("This is an error");
     }
   },
-  
+
   error(error) {
     console.error(error);
     return new Response("Internal Server Error", { status: 500 });
@@ -2784,8 +2687,6 @@ Bun.serve({
 // openssl for testing, generate, self signed
 ```
 
----
-
 ```typescript
 Bun.serve({
   port: 8000,
@@ -2814,23 +2715,6 @@ Bun.serve({
 ---
 
 ## 24. Server Utilities
-
-```mermaid
-flowchart TD
-    A["Server Running"] --> B["Incoming Request"]
-    B --> C["Get Client IP"]
-    C --> D["Set Request Timeout"]
-    D --> E["Handler Executes"]
-    E --> F{"Timeout<br/>Exceeded?"}
-    F -->|Yes| G["Abort Request"]
-    F -->|No| H["Return Response"]
-    G --> I{"Stop<br/>Signal?"}
-    H --> I
-    I -->|Graceful| J["Wait for Active<br/>Requests"]
-    I -->|Force| K["Immediate Close"]
-    J --> L["Server Stopped"]
-    K --> L
-```
 
 ```ts
 const server = Bun.serve({
@@ -2861,7 +2745,6 @@ process.on("SIGINT", () => { // Handle Ctrl+C
   process.exit(0);
 });
 
-
 // server.stop(); // Gracefully stop the server // wait for all requests to finish
 // server.stop(true); // Forcefully stop the server // immediately terminate all connections
 
@@ -2877,17 +2760,15 @@ process.on("SIGINT", () => { // Handle Ctrl+C
 // bun index.ts
 ```
 
----
-
 ### 24.1. Request Timeout
 
 ```typescript
 "/api/posts": {
   GET: async (req, server) => {
     server.timeout(req, 10000); // 10 second timeout
-    
+
     await Bun.sleep(20000); // Simulate long operation
-    
+
     return Response.json(posts);
   }
 }
@@ -2910,7 +2791,7 @@ fetch(req, server) {
   const ip = server.requestIP(req);
   console.log(ip);
   // Output: { address: "::1", port: 54321 }
-  
+
   return new Response("OK");
 }
 ```
@@ -2995,8 +2876,6 @@ for await (const line of console){ // Iterate over console input line by line
 // ➜  25_ git:(main) ✗
 ```
 
----
-
 ### 25.1. Reading Terminal Input
 
 ```typescript
@@ -3036,23 +2915,21 @@ bun run dev
 
 ```ts
 const whiteToRGBA = Bun.color("white","rgba"); // css to rgba
-console.log(whiteToRGBA); 
+console.log(whiteToRGBA);
 // rgba(255, 255, 255, 1)
 
 const whiteToHEX = Bun.color("white","hex"); // css to hex
-console.log(whiteToHEX); 
+console.log(whiteToHEX);
 // #ffffff
 
 const rgbaToCSS = Bun.color("rgba(255, 0, 0, 1)","css"); // rgba to css
-console.log(rgbaToCSS); 
+console.log(rgbaToCSS);
 // red
 
 const RGBToHEX = Bun.color("rgb(0, 255, 0)","hex"); // rgb to hex
-console.log(RGBToHEX); 
+console.log(RGBToHEX);
 // #00ff00
 ```
-
----
 
 ### 26.1. Converting Color Formats
 
@@ -3106,10 +2983,8 @@ console.log(html)
 //      513
 // <!doctype html><html lang="en"><head><title>Example Domain</title><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{background:#eee;width:60vw;margin:15vh auto;font-family:system-ui,sans-serif}h1{font-size:1.5em}div{opacity:0.8}a:link,a:visited{color:#348}</style><body><div><h1>Example Domain</h1><p>This domain is for use in documentation examples without needing permission. Avoid use in operations.<p><a href="https://iana.org/domains/example">Learn more</a></div></body></html>
 //
-// ➜  27_ git:(main) ✗ 
+// ➜  27_ git:(main) ✗
 ```
-
----
 
 ### 27.1. Basic Shell Commands
 
@@ -3175,90 +3050,117 @@ Bun supports standard Web APIs: https://bun.com/docs/runtime/web-apis
 ### 28.1. Available APIs:
 
 1. **Fetch API**
+
    ```typescript
    const response = await fetch("https://api.example.com");
    const data = await response.json();
    ```
+
    **Purpose:** Make HTTP requests from your code
+
    - **Returns:** Promise that resolves to Response object
    - **Use case:** API calls, data fetching
    - **Standard:** Works across browsers and Node.js
 
 2. **Request/Response**
+
    ```typescript
    const req = new Request("https://example.com");
    const res = new Response("Hello");
    ```
+
    **Purpose:** Work with HTTP request/response objects
+
    - **Request:** Represents incoming or outgoing HTTP requests
    - **Response:** Represents HTTP responses with body and headers
    - **Use case:** Building APIs, middleware, handlers
 
 3. **Headers**
+
    ```typescript
    const headers = new Headers();
    headers.set("Content-Type", "application/json");
    ```
+
    **Purpose:** Manage HTTP headers
+
    - **Methods:** .set(), .get(), .delete(), .entries()
    - **Use case:** Setting content-type, authentication, custom headers
    - **Case-insensitive:** Header names are automatically normalized
 
 4. **AbortController**
+
    ```typescript
    const controller = new AbortController();
    fetch(url, { signal: controller.signal });
    controller.abort();
    ```
+
    **Purpose:** Cancel asynchronous operations
+
    - **Use case:** Timeout requests, cancel file uploads
    - **Benefit:** Clean up resources, prevent memory leaks
    - **How:** Pass signal to fetch, call abort() to cancel
 
 5. **URL/URLSearchParams**
+
    ```typescript
    const url = new URL("https://example.com?page=1");
    console.log(url.searchParams.get("page"));
    ```
+
    **Purpose:** Parse and manipulate URLs
+
    - **URL:** Parse URL into components (hostname, pathname, query)
    - **URLSearchParams:** Access query string parameters
    - **Use case:** Routing, query parsing, URL building
 
 6. **WebSocket**
+
    ```typescript
    const ws = new WebSocket("ws://localhost:3000");
    ```
+
    **Purpose:** Real-time bidirectional communication
+
    - **Use case:** Chat, live updates, real-time notifications
    - **Benefit:** Persistent connection, lower latency than HTTP polling
    - **Events:** open, message, close, error
 
 7. **JSON**
+
    ```typescript
    JSON.parse('{"name": "test"}');
    JSON.stringify({ name: "test" });
    ```
+
    **Purpose:** Convert between JSON strings and JavaScript objects
+
    - **parse():** Convert JSON string to object
    - **stringify():** Convert object to JSON string
    - **Use case:** API communication, data serialization
 
 8. **Timers**
+
    ```typescript
    setTimeout(() => console.log("Hello"), 1000);
    setInterval(() => console.log("Tick"), 1000);
    ```
+
    **Purpose:** Execute code after delays or at intervals
+
    - **setTimeout:** Execute once after delay (milliseconds)
    - **setInterval:** Repeat at fixed intervals
    - **Use case:** Scheduling tasks, debouncing, animations
 
 9. **Crypto**
+
    ```typescript
    const uuid = crypto.randomUUID();
    ```
+
    **Purpose:** Cryptographic operations
+
    - **randomUUID():** Generate random UUIDs
    - **getRandomValues():** Fill typed arrays with random values
    - **Use case:** Security, generating unique identifiers
@@ -3266,23 +3168,6 @@ Bun supports standard Web APIs: https://bun.com/docs/runtime/web-apis
 ---
 
 ## 29. Bun as a Package Manager
-
-```mermaid
-flowchart TD
-    A["Package Manager Command"] --> B{"Command Type?"}
-    B -->|bun install| C["Read package.json"]
-    B -->|bun add pkg| D["Download Package"]
-    B -->|bun update| E["Check Latest Versions"]
-    B -->|bun remove pkg| F["Delete Package"]
-    C --> G["Install All Dependencies"]
-    D --> H["Add to package.json<br/>Create/Update lock file"]
-    E --> I["Update Dependencies<br/>Within Version Ranges"]
-    F --> J["Remove from Dependencies<br/>Update lock file"]
-    G --> K["Complete"]
-    H --> K
-    I --> K
-    J --> K
-```
 
 ```sh
 bun init                     # initialize a new Bun project (creates package.json, bun.lockb)
@@ -3301,6 +3186,7 @@ bun outdated                 # list outdated dependencies
 bun publish                  # publish package to npm
 bun link                     # link local package globally for development
 ```
+
 ```rust
 ➜  29_ git:(main) ✗ bun init
 
@@ -3344,10 +3230,11 @@ bun add v1.3.7 (ba426210)
 installed zod@3.0.0
 
 [3.00ms] done
-➜  29_ git:(main) ✗ bun add -D prettier 
+➜  29_ git:(main) ✗ bun add -D prettier
 bun add v1.3.7 (ba426210)
 
 installed prettier@3.8.1 with binaries:
+
  - prettier
 
 1 package installed [1.57s]
@@ -3355,6 +3242,7 @@ installed prettier@3.8.1 with binaries:
 bun add v1.3.7 (ba426210)
 
 installed cowsay@1.6.0 with binaries:
+
  - cowsay
  - cowthink
 
@@ -3363,16 +3251,19 @@ installed cowsay@1.6.0 with binaries:
 bun remove v1.3.7 (ba426210)
 
 - zod
+
 1 package removed [5.00ms]
 ➜  29_ git:(main) ✗ bun remove prettier
 bun remove v1.3.7 (ba426210)
 
 - prettier
+
 1 package removed [3.00ms]
 ➜  29_ git:(main) ✗ bun remove -g cowsay
 bun remove v1.3.7 (ba426210)
 
 - cowsay
+
 1 package removed [2.00ms]
 ➜  29_ git:(main) ✗ bun update
 bun update v1.3.7 (ba426210)
@@ -3382,6 +3273,7 @@ Checked 5 installs across 6 packages (no changes) [80.00ms]
 bun update v1.3.7 (ba426210)
 
 installed typescript@5.9.3 with binaries:
+
  - tsc
  - tsserver
 
@@ -3400,15 +3292,14 @@ To use 29_ in a project, run:
 
 Or add it in dependencies in your package.json file:
   "29_": "link:29_"
-➜  29_ git:(main) ✗ 
+➜  29_ git:(main) ✗
 ```
 
 ![alt text](images/image-28.webp)
 ![alt text](images/image-29.webp)
 
----
-
 ### 29.1. What is a Package Manager?
+
 - **Package** = Pre-written code libraries (like building blocks)
 - **Package Manager** = Tool to download and manage these libraries
 - Think of it like an app store for code
@@ -3420,17 +3311,20 @@ Or add it in dependencies in your package.json file:
 ### 29.2. Installing Dependencies
 
 #### 29.2.1. Install All Dependencies
+
 ```bash
 bun install
 # Equivalent to: npm install
+
 ```
 
 #### 29.2.2. Add Package
+
 ```bash
 # Regular dependency
 bun add zod
 
-# Specific version 
+# Specific version
 bun add zod@3.0.0
 
 # Dev dependency
@@ -3468,17 +3362,20 @@ bun update typescript
 ### 29.5. Other Commands
 
 #### 29.5.1. Check Outdated Packages
+
 ```bash
 bun outdated
 # Shows packages with available updates
 ```
 
 #### 29.5.2. Publish Package
+
 ```bash
 bun publish
 ```
 
 #### 29.5.3. Link Local Package
+
 ```bash
 bun link
 ```
@@ -3486,12 +3383,14 @@ bun link
 ### 29.6. Speed Comparison
 
 **First install:**
+
 ```bash
 bun add zod
 # Completed in 1278ms
 ```
 
 **Second install (cached):**
+
 ```bash
 bun add zod@3.0.0
 # Completed in 67ms
@@ -3508,8 +3407,6 @@ bun create next               # Scaffold a Next.js project (modern CLI)
 bun create next-app           # Scaffold a Next.js app (older/alternate CLI)
 ```
 
----
-
 ### 30.1. Creating Projects from Templates
 
 - https://bun.com/docs/guides/ecosystem/vite
@@ -3517,11 +3414,12 @@ bun create next-app           # Scaffold a Next.js app (older/alternate CLI)
 - https://bun.com/docs/guides/ecosystem/nextjs
 
 #### 30.1.1. React + Vite Project
+
 ```bash
 bun create vite react-app
 # Select: React
-# Select: TypeScript
 
+# Select: TypeScript
 cd react-app
 bun install
 bun run dev
@@ -3531,11 +3429,12 @@ bun run dev
 ![alt text](images/image-31.webp)
 
 #### 30.1.2. Hono.js Project
+
 ```bash
 bun create hono hono-app
 # Select: bun (runtime)
-# Select: bun (package manager)
 
+# Select: bun (package manager)
 cd hono-app
 bun run dev
 ```
@@ -3556,23 +3455,6 @@ Common templates you can use:
 ---
 
 ## 31. Testing with Bun
-
-```mermaid
-flowchart TD
-    A["bun test"] --> B["Discover Test Files"]
-    B --> C["Load Tests"]
-    C --> D["Execute Test Suite"]
-    D --> E{"All Tests<br/>Pass?"}
-    E -->|Passed| F["✓ Test Name"]
-    E -->|Failed| G["✗ Test Name<br/>Expected vs Received"]
-    F --> H["Increment Pass Count"]
-    G --> I["Increment Fail Count"]
-    H --> J{"More Tests?"}
-    I --> J
-    J -->|Yes| D
-    J -->|No| K["Generate Report"]
-    K --> L["Display Summary"]
-```
 
 ```ts
 // test/example.test.ts
@@ -3630,8 +3512,9 @@ test("index/add_1: checking 2 + 2 addition",
 //  1 fail
 //  3 expect() calls
 // Ran 3 tests across 1 file. [9.00ms]
-// ➜  31_ git:(main) ✗ 
+// ➜  31_ git:(main) ✗
 ```
+
 ```ts
 // index.ts
 export const add = (a: number, b:number) : number => {
@@ -3643,9 +3526,8 @@ export const add_1 = (a:number, b:number) : number => {
 }; // wrong code
 ```
 
----
-
 ### 31.1. What is Testing?
+
 - **Testing** = Writing code to verify other code works correctly
 - **Unit Tests** = Test individual functions or features
 - **Why test?** Catch bugs early, ensure code works as expected
@@ -3654,6 +3536,7 @@ export const add_1 = (a:number, b:number) : number => {
 - Example test: "Does 2+2=4?" If not, something is broken
 
 ### 31.2. What is the Test Runner?
+
 - **Test Runner** = Tool that finds and executes your tests
 - Runs all tests and shows which ones passed/failed
 - Bun has built-in test runner (no extra installation needed)
@@ -3665,6 +3548,7 @@ export const add_1 = (a:number, b:number) : number => {
 #### 31.3.1. Test File Structure
 
 Create test files with any of these naming patterns:
+
 - `*.test.ts`
 - `*.spec.ts`
 - `*_test.ts`
@@ -3673,6 +3557,7 @@ Create test files with any of these naming patterns:
 ### 31.4. Writing Tests
 
 **Create `test/example.test.ts`:**
+
 ```typescript
 import { expect, test } from "bun:test";
 
@@ -3688,6 +3573,7 @@ bun test
 ```
 
 **Output:**
+
 ```
 test/example.test.ts:
   ✓ checking 2 + 2 addition
@@ -3723,7 +3609,7 @@ bun test
 # test/example.test.ts:
 #   ✓ checking 2 + 2 addition
 #   ✓ checking 5 + 5 addition
-# 
+#
 # 2 pass
 # 0 fail
 ```
@@ -3732,23 +3618,8 @@ bun test
 
 ## 32. Bun as a Bundler
 
-```mermaid
-flowchart LR
-    A["Source Files"] --> B["Parse TypeScript"]
-    B --> C["Resolve Imports"]
-    C --> D["Combine Files"]
-    D --> E{"Minify?"}
-    E -->|Yes| F["Remove Whitespace<br/>Shorten Names"]
-    E -->|No| G["Keep Readable"]
-    F --> H["Output to outdir"]
-    G --> H
-    H --> I["Compiled JavaScript"]
-    I --> J["Ready for Deployment"]
-```
-
----
-
 ### 32.1. What is a Bundler?
+
 - **Bundler** = Tool that combines multiple files into optimized output
 - Reads all your code files and combines them into one (or a few)
 - **Why?** Smaller files load faster, better performance
@@ -3775,6 +3646,7 @@ bun build index.ts --outdir build # or
 - **Why .js?** JavaScript runs everywhere (servers, browsers, etc.)
 
 **This creates:**
+
 ```
 build/
 └── index.js
@@ -3785,6 +3657,7 @@ build/
 ### 32.3. Build from Source Directory
 
 **Project structure:**
+
 ```
 src/
 ├── index.ts
@@ -3793,12 +3666,14 @@ src/
 ```
 
 **src/index.ts:**
+
 ```typescript
 import { getConfigs } from "../config";
 console.log(getConfigs());
 ```
 
 **src/config/index.ts:**
+
 ```typescript
 export const getConfigs = () => {
   return { env: "development" };
@@ -3806,11 +3681,13 @@ export const getConfigs = () => {
 ```
 
 **Build command:**
+
 ```bash
 bun build ./src/index.ts --outdir ./build
 ```
 
 **Update package.json:**
+
 ```json
 {
   "scripts": {
@@ -3831,7 +3708,7 @@ bun build ./src/index.ts --outdir ./build
   },
   "private": true,
   "scripts": {
-    "start": "bun --env-file=.env.production build/index.js", 
+    "start": "bun --env-file=.env.production build/index.js",
     // .ts -> .js
     "dev": "bun --watch --env-file=.env.development index.ts"
   },
@@ -3840,9 +3717,11 @@ bun build ./src/index.ts --outdir ./build
 ```
 
 **Run:**
+
 ```bash
 bun start
 # Output: { env: "development" }
+
 ```
 
 ![alt text](images/image-35.webp)
@@ -3864,17 +3743,17 @@ bun build ./src/index.ts --outdir ./build --minify
 - **Single file output**: All imports bundled into one file
   - Why: Easier deployment, faster loading
   - Result: One JavaScript file contains everything needed
-  
+
 - **Minification**: Reduces file size
   - How: Removes whitespace, shortens variable names, strips comments
   - Benefit: Smaller download size, faster load times
   - Trade-off: Unreadable code (can't debug easily in production)
-  
+
 - **TypeScript compilation**: Converts .ts to .js
   - Automatic: No configuration required
   - Result: JavaScript files that run in any environment
   - Type information: Removed during compilation (types are only for development)
-  
+
 - **No configuration needed**: Works out of the box
   - Advantage: Simple CLI commands are enough
   - Default settings: Optimized for common use cases
@@ -3897,24 +3776,28 @@ bun build ./src/index.ts --outdir ./build --minify
 - Port 6000 = Reserved/blocked by some browsers
 
 ### 33.2. Environment Variables Best Practices
+
 1. Use `.env.development` for development
 2. Use `.env.production` for production
 3. Always use `--env-file` flag in scripts
 4. Add type definitions for autocomplete
 
 ### 33.3. Package Manager Advantages
+
 - **Speed**: 5-10x faster than npm
 - **Compatibility**: Works with npm packages (same ecosystem)
 - **Built-in**: No separate installation needed
 - **Why faster?** Better algorithms, parallel processing, caching
 
 ### 33.4. TypeScript Support
+
 - **Zero configuration**: Works immediately
 - **Type inference**: Automatic type detection
 - **Fast compilation**: No separate build step
 - **What TypeScript does**: Catches errors before running code (type safety)
 
 ### 33.5. Testing Advantages
+
 - **No Jest dependency**: Built-in test runner (less to install)
 - **Fast execution**: Optimized for speed
 - **Simple syntax**: Familiar API (less to learn)
@@ -3935,11 +3818,11 @@ let posts: TPost[] = [];
 
 const server = Bun.serve({
   port: Bun.env.PORT || 8000,
-  
+
   routes: {
     // Health check
     "/api/health": () => new Response("OK"),
-    
+
     // CRUD operations
     "/api/posts": {
       GET: () => Response.json(posts),
@@ -3950,38 +3833,38 @@ posts.push(post);
         return new Response("Created", { status: 201 });
       }
     },
-    
+
     "/api/posts/:id": {
       PUT: async (req) => {
         const id = req.params.id as string;
         const body = await req.json() as Omit<TPost, "id">;
         const index = posts.findIndex(p => p.id === id);
-        
+
         if (index === -1) {
           return new Response("Not found", { status: 404 });
         }
-        
+
         posts[index] = { ...posts[index], ...body };
         return new Response("Updated");
       },
-      
+
       DELETE: (req) => {
         const id = req.params.id as string;
         const index = posts.findIndex(p => p.id === id);
-        
+
         if (index === -1) {
           return new Response("Not found", { status: 404 });
         }
-        
+
         posts.splice(index, 1);
         return new Response("Deleted");
       }
     },
-    
+
     // Catch-all 404
     "/*": () => new Response("Not found", { status: 404 })
   },
-  
+
   // Global error handler
   error(error) {
     console.error(error);
@@ -4014,6 +3897,7 @@ await Bun.write("backup.json", Bun.file("data.json"));
 ### 34.3. Environment Setup Template
 
 **env.d.ts:**
+
 ```typescript
 declare module "bun" {
   interface Env {
@@ -4026,6 +3910,7 @@ declare module "bun" {
 ```
 
 **.env.development:**
+
 ```env
 PORT=8000
 DATABASE_URL=mongodb://localhost:27017/dev
@@ -4034,6 +3919,7 @@ NODE_ENV=development
 ```
 
 **.env.production:**
+
 ```env
 PORT=8000
 DATABASE_URL=mongodb://prod-server:27017/prod
@@ -4042,6 +3928,7 @@ NODE_ENV=production
 ```
 
 **package.json:**
+
 ```json
 {
   "scripts": {
@@ -4109,70 +3996,10 @@ NODE_ENV=production
 * **Legacy codebases** already built on Node
 * **Compliance-heavy environments** (audits, security reviews)
 
+---
+
 ## 37. Resources
 
 - **Official Website**: https://bun.sh
 - **Documentation**: https://bun.sh/docs
 - **GitHub**: https://github.com/oven-sh/bun
-
-## 38. Complete Bun Roadmap
-
-```mermaid
-flowchart TD
-    A["Bun JavaScript Runtime"] --> B["Introduction to Bun"]
-    B --> C["Web Development Concepts Refresher"]
-    C --> D["Course Overview"]
-    
-    D --> E["What is Bun? - Detailed Explanation"]
-    E --> F["Bun Features Breakdown"]
-    F --> G["Installation"]
-    
-    G --> H["Quick Start Project Setup"]
-    H --> I["Bun as a Runtime"]
-    I --> J["File Imports"]
-    
-    J --> K["Environment Variables"]
-    K --> L["File I/O Operations"]
-    L --> M["Working with Directories"]
-    
-    M --> N["import.meta Object"]
-    N --> O["Hashing & Encryption"]
-    O --> P["Bun Utilities"]
-    
-    P --> Q["HTTP Server with Bun.serve"]
-    Q --> R["Complete CRUD API Example"]
-    R --> S["Query Parameters"]
-    
-    S --> T["Rendering HTML Pages"]
-    T --> U["URL Redirection"]
-    U --> V["Global Error Handling"]
-    
-    V --> W["HTTPS/TLS Configuration"]
-    W --> X["Server Utilities"]
-    X --> Y["Console API"]
-    
-    Y --> Z["Color API"]
-    Z --> AA["Shell Scripting with Bun"]
-    AA --> AB["Web APIs"]
-    
-    AB --> AC["Bun as a Package Manager"]
-    AC --> AD["Bun Create Command"]
-    AD --> AE["Testing with Bun"]
-    
-    AE --> AF["Bun as a Bundler"]
-    AF --> AG["Important Notes & Best Practices"]
-    AG --> AH["Common Patterns & Examples"]
-    
-    AH --> AI["Comparison: Node.js vs Bun"]
-    AI --> AJ["Conclusion"]
-    
-    style A fill:#1e1e1e,stroke:#666,color:#e0e0e0
-    style B fill:#2d2d2d,stroke:#555,color:#e0e0e0
-    style C fill:#2d2d2d,stroke:#555,color:#e0e0e0
-    style D fill:#2d2d2d,stroke:#555,color:#e0e0e0
-    style E fill:#2d2d2d,stroke:#555,color:#e0e0e0
-    style Q fill:#3a3a3a,stroke:#444,color:#ffeb3b
-    style AE fill:#3a3a3a,stroke:#444,color:#ffeb3b
-    style AF fill:#3a3a3a,stroke:#444,color:#ffeb3b
-    style AJ fill:#1e1e1e,stroke:#666,color:#e0e0e0
-```
